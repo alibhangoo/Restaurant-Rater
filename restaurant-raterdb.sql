@@ -30,8 +30,8 @@ CREATE TABLE Rating
 	CHECK (Staff < 6 AND Staff > 0),
 	FOREIGN KEY(UserID) REFERENCES Rater,
 	FOREIGN KEY(RestaurantId) REFERENCES Restaurant
-	
-		
+
+
 );
 
 
@@ -73,7 +73,7 @@ CREATE TABLE MenuItem
 );
 
 CREATE TABLE RatingItem
-(	
+(
 	UserID INTEGER,
 	ItemID INTEGER,
 	Date DATE,
@@ -91,6 +91,11 @@ VALUES(0,'McDonald''s', 'American', 'mcdonalds.com/ca/en-ca.html');
 VALUES(1,'Pizza Pizza', 'American', 'pizzapizza.ca');
 VALUES(2,'Ng''s Cuisine', 'Chinese', 'ngscuisine.com');
 VALUES(3,'Red Lobster', 'American', 'redlobster.ca');
-VALUES(5, '168 Sushi Japanese Buffet', 'Japanese', '168sushibuffet.com');
-VALUES(6, 'Cozmos Souvlaki', 'Greek', 'cozmossouvlaki.com');
-
+VALUES(4, '168 Sushi Japanese Buffet', 'Japanese', '168sushibuffet.com');
+VALUES(5, 'Cozmos Souvlaki', 'Greek', 'cozmossouvlaki.com');
+VALUES(6,'Popeyes', 'American', 'popeyeschicken.ca');
+VALUES(7,'3 Brothers Shawarma', 'Middle Eastern', 'www.3brothersshawarma.com');
+VALUES(8,'The Fry', 'Korean', 'thefry.ca');
+VALUES(9,'Mandarin', 'Chinese', 'mandarinrestaurant.com');
+VALUES(10,'Harvey''s', 'American', 'harveys.ca');
+VALUES(11,'Chako', 'Korean', 'chakobbq.com');
