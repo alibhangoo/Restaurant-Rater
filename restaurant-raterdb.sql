@@ -38,6 +38,7 @@ CREATE TABLE Rating
 	FOREIGN KEY(RestaurantId) REFERENCES Restaurant
 );
 
+
 CREATE TABLE Location
 (
 	LocationID INTEGER PRIMARY KEY,
@@ -79,6 +80,7 @@ CREATE TABLE RatingItem
 	FOREIGN KEY (Date) REFERENCES Rating
 
 );
+
 
 INSERT INTO Restaurant VALUES
   (0,'McDonald''s', 'American', 'mcdonalds.com/ca/en-ca.html'),
