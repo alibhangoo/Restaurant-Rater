@@ -57,7 +57,7 @@ CREATE TABLE Location
 CREATE TABLE MenuItem
 (
 	ItemID INTEGER PRIMARY KEY,
-	name VARCHAR,
+	name VARCHAR UNIQUE,
 	type VARCHAR(20),
 	category VARCHAR(20),
 	description VARCHAR,
@@ -115,7 +115,7 @@ INSERT INTO MenuItem VALUES
 	(17, 'Chicken Souvlaki', 'food', 'main', 'Chicken with Tzatziki and soft peta bread.', 8.30, 5),
 	(18, 'Poutine', 'food', 'main', 'Fries with fresh beef gravy and cheese curds.', 6.99, 5),
 	(19, 'Greek Salad', 'main', 'With fresh feta cheese and olives.', 4.99, 5),
-	(20, 'Bonafide Chicken', 'food', 'main', 'Our freshly prepared chicken, marinated in Popeyes spicy chicken marinade,', 6.99, 6),
+	(20, 'Bonafide Chicken', 'food', 'main', 'Our freshly prepared chicken, marinated in Popeyes spicy chicken marinade.', 6.99, 6),
 	(21, 'Mashed Potatoes', 'food', 'starter', 'Smooth, creamy mashed potatoes covered with our flavourful cajun gravy.', 2.99, 6),
 	(22, 'Soda', 'beverage', 'main', 'Cold beverage of your choice.', 1.99, 6),
 	(23, 'Popcorn Shrimp', 'food', 'main', 'Tender crispy shrimp seasoned in Louisiana herbs.', 7.99, 6),
@@ -135,3 +135,86 @@ INSERT INTO MenuItem VALUES
 	(37, 'Beef', 'food', 'main', 'A tray of raw beef served to be grilled.', 12.99, 11),
 	(38, 'Ice Cream', 'food', 'dessert','Mango or Pistachio flavour served fresh!', 2.99, 11),
 	(39, 'Beer', 'beverage', 'main', 'Cool brew of beer.', 3.99, 11);
+	
+INSERT INTO Rater VALUES
+	(0, 'alantran@hotmail.com', 'AlanTran', 2018-04-04 , 'food critic', 5),
+	(1, 'shicritic@gmail.com' ,'ShiCritic', 2015-07-30, 'blog', 4),
+	(2, 'makboolean@gmail.com', 'Makboolean', 2017-12-15, 'online', 4),
+	(3, 'supersizeme@gmail.com', 'SuperSizeMe', 2016-03-24, 'blog', 3),
+	(4, 'kbdproductions@gmail.com', 'KBDproductions', 1998-08-11, 'online', 5),
+	(5, 'superofficial@gmail.com', 'DaymnDrops', 2008-06-15, 'online', 2)
+	(6, 'pete@gmail.com', 'FuriousPete', 2014-02-31, 'food critic',1),
+	(7, 'peterlam@gmail.com', 'PokeFire', 2017-07-18, 'food critic', 5),
+
+INSERT INTO Rating VALUES
+
+	(1, 2018-07-27, 5, 4, 4, 5, 'Stitsville has the best employees!', 0),
+	(2, 2018-06-14, 3, 4, 4, 4, 'Great fries and staff.', 0),
+	(3, 2018-05-09, 5, 3, 4, 3, 'Price is right!', 0),
+	(4, 2018-08-25, 1, 5, 5, 5, 'Amazing food and staff but too overpriced.', 0),
+	(7, 2018-09-15, 4, 4, 4, 4, 'All around great.', 0),
+	
+	(2, 2018-10-08, 3, 3, 3, 3, 'Decent.', 1),
+	(3, 2018-03-18, 2, 3, 3, 2, 'Food is okay.', 1),
+	(5, 2018-01-07, 5, 3, 5, 5, 'Love everything except the food', 1),
+	(6, 2018-04-17, 2, 2, 3, 3, 'Too expensive.', 1),
+	(7, 2018-08-06, 3, 3, 3, 3, 'Everything could and should be better.', 1),
+	
+	
+	(0, 2018-12-24, 4, 5, 5, 1, 'Staff should be improved, large wait times, and they should make sauces free.', 2),
+	(3, 2018-02-03, 2, 2, 2, 2, 'Expected more.', 2),
+	(4, 2018-02-18, 2, 3, 3, 2, 'Food is okay.', 2),
+	(5, 2018-06-20, 4, 3, 3, 4, 'Price and staff is what makes this place great!', 2),
+	(6, 2018-04-02, 5, 5, 5, 5, 'Irresistible', 2),
+	
+	
+	(0, 2018-11-30, 2, 4, 4, 5, 'Great for families!',3),
+	(1, 2018-07-05, 1, 2, 3, 4, 'Only good thing is their staff.', 3),
+	(3, 2018-07-01, 4, 4, 4, 4, 'Wow amazing.', 3),
+	(5, 2018-05-15, 3, 4, 4, 5, 'Great, went for my birthday.', 3),
+	(6, 2018-09-03, 4, 4, 4, 4, 'So good.', 3),
+	
+	
+	(0, 2018-12-26, 5, 4, 4, 5, 'One of the greatest', 4),
+	(2, 2018-01-26, 5, 5, 5, 5, 'My ultimate favorite restaurant!', 4),
+	(3, 2018-04-14, 3, 5, 3, 4, 'Yummy food!', 4),
+	(5, 2018-02-14, 3, 4, 3, 4, 'Give it a try!', 4),
+	(7, 2018-06-13, 4, 4, 5, 4, 'Wow! Im shocked how amazing it is!', 4),
+	
+	(1, 2018-07-11, 1, 1, 1, 1, 'Way too overpriced.', 5),
+	(3, 2018-08-24, 3, 3, 3, 3, 'Okay overall.', 5),
+	(4, 2018-09-12, 5, 4, 3, 2, 'Price is great, but staff do not pay attention.', 5),
+	(6, 2018-12-13, 4, 4, 3, 4, 'The enviroment can be better.', 5),
+	(7, 2018-07-17, 3, 3, 3, 3, 'Pretty decent.', 5),
+	
+
+INSERT INTO RatingItem VALUES
+	-- 0
+	(1, 2, 2018-07-27, 5, 'Mctasty!'),
+	(2, 1, 2018-06-14, 4, 'Classic Big Mac yum.'),
+	(3, 0, 2018-05-09, 3,'Montreal Steak is worth the money but taste is okay.'),
+
+	-- 1
+	(2, 6, 2018-10-08, 3, 'Wings are okay.'),
+	(3, 3, 2018-03-18, 3, 'Too spicy.'),
+	(5, 5, 2018-01-07, 3, 'Chicken was a little dry.'),
+	
+	-- 2
+	(4, 7,2018-02-18, 3, 'Portion size is small for the scallop.'),
+	(5, 7,2018-06-20, 3, 'Scallop was a little dry.'),
+	(6, 9,2018-04-02, 5, 'Very tender pork and good sauce'),
+	
+	-- 3
+	(3, 12,2018-07-01, 4, 'So fresh.'),
+	(5, 10,2018-05-15, 4, 'Tender noodles yum.'),
+	(6, 11,2018-09-03, 4, 'Nice and acidic.'),
+	
+	-- 4
+	(0, 13,2018-12-26, 4, 'Great as a starter.'),
+	(5, 14,2018-02-14, 4, 'Crispy and sweet!'),
+	(7, 15,2018-06-13, 4, 'Reminds me of LA.'),
+	
+	-- 5
+	(1, 17,2018-07-11, 1, 'Too much money and was very dry.'),
+	(4, 18,2018-09-12, 4, 'Gravy is delicious!'),
+	(7, 18,2018-07-17, 3, 'Not enough cheese but decent.'),
