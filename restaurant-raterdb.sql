@@ -169,20 +169,17 @@ INSERT INTO Rating VALUES
 	(6, 2018-04-17, 2, 2, 3, 3, 'Too expensive.', 1),
 	(7, 2018-08-06, 3, 3, 3, 3, 'Everything could and should be better.', 1),
 
-
 	(0, 2018-12-24, 4, 5, 5, 1, 'Staff should be improved, large wait times, and they should make sauces free.', 2),
 	(3, 2018-02-03, 2, 2, 2, 2, 'Expected more.', 2),
 	(4, 2018-02-18, 2, 3, 3, 2, 'Food is okay.', 2),
 	(5, 2018-06-20, 4, 3, 3, 4, 'Price and staff is what makes this place great!', 2),
 	(6, 2018-04-02, 5, 5, 5, 5, 'Irresistible', 2),
 
-
 	(0, 2018-11-30, 2, 4, 4, 5, 'Great for families!',3),
 	(1, 2018-07-05, 1, 2, 3, 4, 'Only good thing is their staff.', 3),
 	(3, 2018-07-01, 4, 4, 4, 4, 'Wow amazing.', 3),
 	(5, 2018-05-15, 3, 4, 4, 5, 'Great, went for my birthday.', 3),
 	(6, 2018-09-03, 4, 4, 4, 4, 'So good.', 3),
-
 
 	(0, 2018-12-26, 5, 4, 4, 5, 'One of the greatest', 4),
 	(2, 2018-01-26, 5, 5, 5, 5, 'My ultimate favorite restaurant!', 4),
@@ -231,7 +228,6 @@ INSERT INTO Rating VALUES
 	(10, 2018-06-20, 3, 4, 4, 5, 'I loved the food. ', 11),
 	(11, 2018-09-12, 4, 2, 3, 4, 'I didn''t really like food very much, quality was not that good.', 11),
 	(7, 2018-04-5, 4, 3, 2, 3, 'Food wasn''t that fresh, but not bad either.', 11);
-
 
 INSERT INTO RatingItem VALUES
 	-- 0
@@ -293,3 +289,8 @@ INSERT INTO RatingItem VALUES
 	(13, 37, 2018-04-5, 3,'The food wasn''t very fresh.'),
 	(12, 38, 2018-03-15, 4,'Great food and staff I WAS CRAVING good dessert.'),
 	(10, 39, 2018-06-20, 4, 'I loved the food.');
+
+	-- 5
+	(1, 17,2018-07-11, 1, 'Too much money and was very dry.'),
+	(4, 18,2018-09-12, 4, 'Gravy is delicious!'),
+	(7, 18,2018-07-17, 3, 'Not enough cheese but decent.'),
