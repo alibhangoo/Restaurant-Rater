@@ -95,6 +95,26 @@ INSERT INTO Restaurant VALUES
 	(11,'Chako', 'Korean', 'chakobbq.com');
 
 INSERT INTO MenuItem VALUES
+	(0, 'Montreal Steak Spice BBQ Angus', 'food', 'main', '100% Angus beef with BBQ sauce, crispy onions, and natural Mozzarella cheese.', 9.99,0),
+	(1, 'Big Mac', 'food', 'main', '100% Canadian beef, processed cheddar cheese, with famous Big Mac sauce.', 6.99, 0),
+	(2, 'Oreo McFlurry', 'food', 'dessert', 'Creamy vanilla soft served mixed with Oreo', 2.39, 0),
+	(3, '8 Jalapeno Poppers', 'food', 'starter', 'Stuffed jalapeno peppers with cream cheese then deep-fried.', 5.99, 1),
+	(4, 'Chocolate Milk', 'beverage', 'main', 'Classic chocolate milk from the cow.', 2.09, 1),
+	(5, 'Fresco - Chicken Bruschetta', 'food', 'main', '10" whole grain, thin crust with grilled chicken, roasted garlic, bruschetta, parmesan cheese and mozzarella cheese.', 5.00, 1),
+	(6, '20 Chicken Wings', 'food', 'main', 'Classic or crispy breaded wings.', 18.99, 1),
+	(7, 'Dry Scallop Seafood Soup', 'food', 'starter', 'With delicious fresh scallops.', 15.95, 2),
+	(8, 'BBQ Pork Fried Rice', 'food', 'main', 'Sweet BBQ Pork with tender fried rice.', 8.95, 2),
+	(9, 'Spicy Crispy Beef', 'food', 'main', 'Nice and spicy.', 12.55, 2),
+	(10, 'Shirmp Linguine Alfredo', 'food', 'main', 'With our creamy Alfredo sauce.', 19.99, 3),
+	(11, 'Key Lime Pie', 'food', 'dessert', 'A slice of our cool, tangy, creamy classic with a graham cracker crust.', 7.99, 3)
+	(12, 'Mojito', 'beverage', 'main', 'We take Bacardi Superior rum, muddle it with fresh-squeezed lime, mint, pure cane sugar and top with club soda.', 4.99, 3)
+	(13, 'Edamame', 'food', 'starter', 'Steamed Soy Bean with Lightly Salt.', 3.95, 4),
+	(14, 'Banana Tempura (4pcs)', 'food', 'starter', 'Deep Fried Banana with sweet chocolate sauce.', 3.95, 4),
+	(15, 'California', 'food', 'main', 'Crap meat, cucumber.', 4.95, 4),
+	(16, 'Beef Souvlaki', 'food', 'main', 'Beef with Tzatzikiand soft peta bread.', 8.30, 5),
+	(17, 'Chicken Souvlaki', 'food', 'main', 'Chicken with Tzatziki and soft peta bread.', 8.30, 5),
+	(18, 'Poutine', 'food', 'main', 'Fries with fresh beef gravy and cheese curds.', 6.99, 5),
+	(19, 'Greek Salad', 'main', 'With fresh feta cheese and olives.', 4.99, 5),
 	(20, 'Bonafide Chicken', 'food', 'main', 'Our freshly prepared chicken, marinated in Popeyes spicy chicken marinade,', 6.99, 6),
 	(21, 'Mashed Potatoes', 'food', 'starter', 'Smooth, creamy mashed potatoes covered with our flavourful cajun gravy.', 2.99, 6),
 	(22, 'Soda', 'beverage', 'main', 'Cold beverage of your choice.', 1.99, 6),
