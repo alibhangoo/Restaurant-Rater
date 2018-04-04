@@ -12,7 +12,13 @@ CREATE TABLE Rater
 
 );
 
-
+CREATE TABLE Restaurant
+(
+ 	RestaurantID INTEGER PRIMARY KEY,
+	Name VARCHAR,
+	Type VARCHAR,
+	URL VARCHAR
+);
 
 CREATE TABLE Rating
 (
@@ -30,17 +36,6 @@ CREATE TABLE Rating
 	CHECK (Staff < 6 AND Staff > 0),
 	FOREIGN KEY(UserID) REFERENCES Rater,
 	FOREIGN KEY(RestaurantId) REFERENCES Restaurant
-
-
-);
-
-
-CREATE TABLE Restaurant
-(
- 	RestaurantID INTEGER PRIMARY KEY,
-	Name VARCHAR(20),
-	Type VARCHAR(20),
-	URL VARCHAR
 );
 
 CREATE TABLE Location
@@ -87,15 +82,15 @@ CREATE TABLE RatingItem
 );
 
 INSERT INTO Restaurant
-VALUES(0,'McDonald''s', 'American', 'mcdonalds.com/ca/en-ca.html');
-VALUES(1,'Pizza Pizza', 'American', 'pizzapizza.ca');
-VALUES(2,'Ng''s Cuisine', 'Chinese', 'ngscuisine.com');
-VALUES(3,'Red Lobster', 'American', 'redlobster.ca');
-VALUES(4, '168 Sushi Japanese Buffet', 'Japanese', '168sushibuffet.com');
-VALUES(5, 'Cozmos Souvlaki', 'Greek', 'cozmossouvlaki.com');
-VALUES(6,'Popeyes', 'American', 'popeyeschicken.ca');
-VALUES(7,'3 Brothers Shawarma', 'Middle Eastern', 'www.3brothersshawarma.com');
-VALUES(8,'The Fry', 'Korean', 'thefry.ca');
-VALUES(9,'Mandarin', 'Chinese', 'mandarinrestaurant.com');
-VALUES(10,'Harvey''s', 'American', 'harveys.ca');
-VALUES(11,'Chako', 'Korean', 'chakobbq.com');
+	VALUES(0,'McDonald''s', 'American', 'mcdonalds.com/ca/en-ca.html'),
+	(1,'Pizza Pizza', 'American', 'pizzapizza.ca'),
+	(2,'Ng''s Cuisine', 'Chinese', 'ngscuisine.com'),
+	(3,'Red Lobster', 'American', 'redlobster.ca'),
+	(4, '168 Sushi Japanese Buffet', 'Japanese', '168sushibuffet.com'),
+	(5, 'Cozmos Souvlaki', 'Greek', 'cozmossouvlaki.com'),
+	(6,'Popeyes', 'American', 'popeyeschicken.ca'),
+	(7,'3 Brothers Shawarma', 'Middle Eastern', 'www.3brothersshawarma.com'),
+	(8,'The Fry', 'Korean', 'thefry.ca'),
+	(9,'Mandarin', 'Chinese', 'mandarinrestaurant.com'),
+	(10,'Harvey''s', 'American', 'harveys.ca'),
+	(11,'Chako', 'Korean', 'chakobbq.com');
