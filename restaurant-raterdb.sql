@@ -289,8 +289,3 @@ INSERT INTO RatingItem VALUES
 	(13, 37, 2018-04-5, 3,'The food wasn''t very fresh.'),
 	(12, 38, 2018-03-15, 4,'Great food and staff I WAS CRAVING good dessert.'),
 	(10, 39, 2018-06-20, 4, 'I loved the food.');
-
-	-- 5
-	(1, 17,2018-07-11, 1, 'Too much money and was very dry.'),
-	(4, 18,2018-09-12, 4, 'Gravy is delicious!'),
-	(7, 18,2018-07-17, 3, 'Not enough cheese but decent.'),
