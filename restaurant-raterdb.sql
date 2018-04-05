@@ -3,8 +3,8 @@ SET search_path = "restaurant-rater";
 CREATE TABLE Rater
 (
 	UserID INTEGER PRIMARY KEY,
-	email VARCHAR(20),
-	name VARCHAR(20) UNIQUE,
+	email VARCHAR(50),
+	name VARCHAR(50) UNIQUE,
 	join_date DATE,
 	type VARCHAR(20),
 	reputation INTEGER DEFAULT 1,
@@ -145,7 +145,7 @@ INSERT INTO Rater VALUES
 	(3, 'supersizeme@gmail.com', 'SuperSizeMe', '2016-03-24', 'blog', 3),
 	(4, 'kbdproductions@gmail.com', 'KBDproductions', '1998-08-11', 'online', 5),
 	(5, 'superofficial@gmail.com', 'DaymnDrops', '2008-06-15', 'online', 2),
-	(6, 'pete@gmail.com', 'FuriousPete', '2014-02-31', 'food critic',1),
+	(6, 'pete@gmail.com', 'FuriousPete', '2014-02-20', 'food critic',1),
 	(7, 'peterlam@gmail.com', 'PokeFire', '2017-07-18', 'food critic', 5),
 	(8, 'saeed@gmail.com', 'SaeedSlayer', '2016-01-17', 'blog',4),
 	(9, 'haider@gmail.com', 'HaiderGod', '2016-01-06', 'online',5),
@@ -172,7 +172,7 @@ INSERT INTO Rating VALUES
 	(0, '2018-12-24', 4, 5, 5, 1, 'Staff should be improved, large wait times, and they should make sauces free.', 2),
 	(3, '2018-02-03', 2, 2, 2, 2, 'Expected more.', 2),
 	(4, '2018-02-18', 2, 3, 3, 2, 'Food is okay.', 2),
-	(5, '2018-06-20', 4, 3, 3, 4, 'Price and staff is what makes this place great!', 2),
+	(5, '2018-06-22', 4, 3, 3, 4, 'Price and staff is what makes this place great!', 2),
 	(6, '2018-04-02', 5, 5, 5, 5, 'Irresistible', 2),
 
 	(0, '2018-11-30', 2, 4, 4, 5, 'Great for families!',3),
@@ -193,41 +193,41 @@ INSERT INTO Rating VALUES
 	(6, '2018-12-13', 4, 4, 3, 4, 'The enviroment can be better.', 5),
 	(7, '2018-07-17', 3, 3, 3, 3, 'Pretty decent.', 5),
 
-	(11, '2018-04-6', 4, 5, 3, 4, 'The food was amazing, staff was quick and friendly and the mood was alright.', 6),
+	(11, '2018-07-18', 4, 5, 3, 4, 'The food was amazing, staff was quick and friendly and the mood was alright.', 6),
 	(8, '2018-04-30', 5, 4, 4, 4, 'The food was great for the price.', 6),
 	(14, '2018-04-5', 5, 3, 3, 3, 'Food was okay for the price.', 6),
 	(7, '2018-04-13', 4, 3, 4, 3, 'Not bad food, price was cheap.', 6),
 	(9, '2018-06-20', 4, 4, 3, 4, 'The food was great, and staff was friendly and nice', 6),
 
-	(10, '2018-05-6', 2, 4, 5, 4, 'I liked the food, especially because it was cheap, decent staff too!', 7),
-	(11, '2018-06-13', 1, 4, 4, 3, 'The food was great but it is OVERPRICED and staff is okay.', 7),
+	(10, '2018-05-06', 2, 4, 5, 4, 'I liked the food, especially because it was cheap, decent staff too!', 7),
+	(11, '2018-06-19', 1, 4, 4, 3, 'The food was great but it is OVERPRICED and staff is okay.', 7),
 	(7, '2018-06-24', 1, 4, 4, 3, 'Overpriced, but good', 7),
-	(12, '2018-08-5', 2, 4, 4, 4, 'The food was kind of overpriced, but since the staff was good it makes up for it', 7),
-	(8, '2018-06-20', 2, 5, 4, 3, 'LOVED the good but overpriced.', 7),
+	(12, '2018-08-05', 2, 4, 4, 4, 'The food was kind of overpriced, but since the staff was good it makes up for it', 7),
+	(8, '2018-11-21', 2, 5, 4, 3, 'LOVED the good but overpriced.', 7),
 
 	(9, '2018-07-14', 3, 5, 3, 4, 'The food was amazing, staff was quick and friendly and the mood was alright.', 8),
-	(8, '2018-04-30', 4, 3, 4, 3, 'The waiting time was pretty short and the food was decent given it was quite cheap.', 8),
-	(10, '2018-04-5', 4, 3, 4, 3, 'Cheap food, short wait, would reccommend.', 8),
-	(11, '2018-05-5', 4, 3, 4, 3, 'The food was cheap!.', 8),
-	(12, '2018-06-5', 5, 3, 4, 3, 'Cheap food, would reccommend to anyone.', 8),
+	(8, '2018-04-03', 4, 3, 4, 3, 'The waiting time was pretty short and the food was decent given it was quite cheap.', 8),
+	(10, '2018-04-09', 4, 3, 4, 3, 'Cheap food, short wait, would reccommend.', 8),
+	(11, '2018-05-05', 4, 3, 4, 3, 'The food was cheap!.', 8),
+	(12, '2018-06-05', 5, 3, 4, 3, 'Cheap food, would reccommend to anyone.', 8),
 
 	(12, '2018-08-12', 5, 2, 3, 4, 'The staff was great, however, the food was overpriced and the quality wasn''t that good.', 9),
-	(7, '2018-09-12', 4, 2, 3, 4, 'The food was cheap, I would tell my friends about it, pretty good!', 9),
-	(13, '2018-06-20', 3, 3, 4, 2, 'The staff wasn''t very oragnized, but the food was served nicely and tasted great', 9),
-	(8, '2018-09-12', 4, 2, 3, 4, 'The food wasn''t that good.', 9),
+	(7, '2018-12-07', 4, 2, 3, 4, 'The food was cheap, I would tell my friends about it, pretty good!', 9),
+	(13, '2018-02-08', 3, 3, 4, 2, 'The staff wasn''t very oragnized, but the food was served nicely and tasted great', 9),
+	(8, '2018-03-22', 4, 2, 3, 4, 'The food wasn''t that good.', 9),
 	(14, '2018-09-13', 3, 4, 3, 5, 'Definitely one of the cheaper places I liked it!', 9),
 
 	(9, '2018-06-01', 2, 5, 4, 3, 'The food was expensive but it was prepared delicately and tasted amazing.', 10),
-	(10, '2018-06-20', 2, 3, 4, 4, 'Best food, but it was expensive.', 10),
+	(10, '2018-06-27', 2, 3, 4, 4, 'Best food, but it was expensive.', 10),
 	(14, '2018-06-03', 3, 2, 4, 3, 'The food was okay, but I''ve tasted better for the same price.', 10),
 	(8, '2018-09-04', 3, 4, 4, 3, 'I liked me some good old murican'' food!', 10),
-	(7, '2018-06-20', 2, 3, 4, 4, 'Great burgers, loved em!', 10),
+	(7, '2018-05-27', 2, 3, 4, 4, 'Great burgers, loved em!', 10),
 
-	(13, '2018-04-5', 4, 3, 2, 3, 'The staff was slow and the food wasn''t very fresh.', 11),
+	(13, '2018-04-12', 4, 3, 2, 3, 'The staff was slow and the food wasn''t very fresh.', 11),
 	(12, '2018-03-15', 3, 4, 4, 5, 'Great food and staff, but slightly expensive, would reccommend to anyone craving korean bbq.', 11),
-	(10, '2018-06-20', 3, 4, 4, 5, 'I loved the food. ', 11),
-	(11, '2018-09-12', 4, 2, 3, 4, 'I didn''t really like food very much, quality was not that good.', 11),
-	(7, '2018-04-5', 4, 3, 2, 3, 'Food wasn''t that fresh, but not bad either.', 11);
+	(10, '2018-10-15', 3, 4, 4, 5, 'I loved the food. ', 11),
+	(11, '2018-08-14', 4, 2, 3, 4, 'I didn''t really like food very much, quality was not that good.', 11),
+	(7, '2018-04-06', 4, 3, 2, 3, 'Food wasn''t that fresh, but not bad either.', 11);
 
 INSERT INTO RatingItem VALUES
 	-- 0
@@ -242,7 +242,7 @@ INSERT INTO RatingItem VALUES
 
 	-- 2
 	(4, 7,'2018-02-18', 3, 'Portion size is small for the scallop.'),
-	(5, 7,'2018-06-20', 3, 'Scallop was a little dry.'),
+	(5, 7,'2018-06-22', 3, 'Scallop was a little dry.'),
 	(6, 9,'2018-04-02', 5, 'Very tender pork and good sauce'),
 
 	-- 3
@@ -261,32 +261,91 @@ INSERT INTO RatingItem VALUES
 	(7, 18,'2018-07-17', 3, 'Not enough cheese but decent.'),
 
 	-- 6
-	(11, 20, '2018-04-6', 5, 'It was AMAZING!'),
+	(11, 20, '2018-07-18', 5, 'It was AMAZING!'),
 	(8, 21, '2018-04-30', 4, 'The food was great'),
-	(14, 22, '2018-04-5', 3,'Food was okay for the price.'),
+	(14, 22, '2018-04-05', 3,'Food was okay for the price.'),
 
 	-- 7
 	(10, 25, '2018-05-6', 4, 'I liked the food.'),
-	(11, 26, '2018-06-13',4, 'The food was great.'),
+	(11, 26, '2018-06-19',4, 'The food was great.'),
 	(7, 27, '2018-06-24', 4, 'Overpriced, but good'),
 
 	-- 8
 	(9, 28, '2018-07-14', 5, 'The food was amazing!'),
-	(8, 29, '2018-04-30', 3, 'I thought it was decent.'),
-	(10, 30, '2018-04-5', 3, 'Not bad at all for the price.'),
+	(8, 29, '2018-04-03', 3, 'I thought it was decent.'),
+	(10, 30, '2018-04-09', 3, 'Not bad at all for the price.'),
 
 	-- 9
 	(12, 31, '2018-08-12', 2, 'Qualit wasn''t that great'),
-	(7, 32, '2018-09-12', 2,'Meh it was cheap I guess it''s ok'),
-	(13, 33, '2018-06-20', 3, 'The food was served nicely and tasted great'),
+	(7, 32, '2018-12-07', 2,'Meh it was cheap I guess it''s ok'),
+	(13, 33, '2018-02-08', 3, 'The food was served nicely and tasted great'),
 
 	-- 10
 	(9, 34, '2018-06-01', 5, 'It was prepared delicately and tasted amazing.'),
-	(10, 35, '2018-06-20', 3, 'Best food I SWEAR'),
+	(10, 35, '2018-06-27', 3, 'Best food I SWEAR'),
 	(14, 36, '2018-06-03', 2, 'The food was okay'),
 
 	-- 11
-	(13, 37, '2018-04-5', 3,'The food wasn''t very fresh.'),
+	(13, 37, '2018-04-12', 3,'The food wasn''t very fresh.'),
 	(12, 38, '2018-03-15', 4,'Great food and staff I WAS CRAVING good dessert.'),
-	(10, 39, '2018-06-20', 4, 'I loved the food.');
+	(10, 39, '2018-10-15', 4, 'I loved the food.');
 
+
+--Restraurants and menus
+--a
+SELECT * FROM Restaurant AS R, Location AS L WHERE (R.RestaurantID = L.RestaurantID) AND (R.Name = User.nameR);
+
+--b
+SELECT M.name, M.price,  M.type, M.Category, M.description FROM MenuItem AS M, Restaurant AS R WHERE (R.RestaurantID = M.RestaurantID) ORDER BY M.category ASC; -- R.Name = User.nameR
+
+--c
+SELECT L.manager_name, L.first_open_date FROM Restaurant AS R, Location AS L WHERE R.RestaurantID = L.RestaurantID; --R.Categy = User.cat
+
+--d
+SELECT M.name, L.manager_name, L.hour_open, R.URL
+FROM Location AS L, Restaurant AS R, MenuItem AS M
+WHERE (L.RestaurantID = R.RestaurantID) AND (M.RestaurantID = R.RestaurantID) AND M.Price IN(SELECT MAX(M.price) AS maxMenu 
+	FROM MenuItem as M, Restaurant as R
+	WHERE (M.RestaurantID = R.RestaurantID) AND R.name = 'Popeyes');
+	
+--HOURS OPEN CHANGE DECIMAL, PRICE!!!,
+INSERT INTO Location
+	VALUES (0, '2011-01-01', 'Ali Baghoo', '613-123-1234', 'Baseline Rd.', 1, 9, 6);
+
+--e
+
+SELECT R.Type, M.category, AVG(M.price) AS avgPriceCat 
+FROM MenuItem AS M, Restaurant as R 
+WHERE M.RestaurantID = R.RestaurantID
+GROUP BY M.Category, R.Type ORDER BY R.type, M.category;
+
+SELECT R.Type, M.category, AVG(M.price) AS avgPriceCat 
+FROM MenuItem AS M, Restaurant as R 
+WHERE M.RestaurantID IN
+	(SELECT R2.RestaurantID FROM Restaurant As R2 WHERE R.type = R2.type) AND M.RestaurantID = R.RestaurantID
+GROUP BY M.Category, R.Type ORDER BY R.type, M.Category;
+
+-- Ratings of Restaurants
+
+--f
+SELECT R.name ,Rater.name, Rating.price, Rating.food, Rating.mood, Rating.staff
+FROM Restaurant AS R, Rater, Rating 
+WHERE (Rater.userid = Rating.userid and Rating.restaurantid = R.restaurantid)
+GROUP BY R.name ,Rater.userId, Rating.price, Rating.food, Rating.mood, Rating.staff ORDER BY R.name, Rater.name;
+
+--g
+SELECT DISTINCT R.name, L.phone_number, R.type 
+FROM Restaurant AS R, Location AS L, Rating 
+WHERE R.restaurantid = L.restaurantid AND
+	NOT EXISTS (SELECT Ratings.date 
+				FROM Rating AS Ratings 
+				WHERE date_part('year', rating.date) =2015 AND date_part('month', rating.date) = 01);
+--h
+
+SELECT DISTINCT R.name, L.first_open_date 
+FROM Restaurant as R, Location as L, Rating 
+WHERE  R.restaurantid = L.restaurantid AND Rating.restaurantid = R.restaurantid AND (rating.staff <
+	--(SELECT MAX(Xratings.price) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
+	(SELECT MAX(Xratings.food) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
+	OR rating.staff < (SELECT MAX(Xratings.staff) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
+	OR rating.staff <	(SELECT MAX(Xratings.mood) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 ))
