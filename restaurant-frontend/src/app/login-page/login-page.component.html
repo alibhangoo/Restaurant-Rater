@@ -1,0 +1,15 @@
+<h1>Login Page</h1>
+<hr />
+
+<div>
+  <form > 
+    <label>Username</label>
+    <input type="text" name="username" [(ngModel)]="login.username" />
+
+    <label>Password</label>
+    <input type="password" name="password" [(ngModel)]="login.password"/>
+
+    <button type="submit" [style.color]="color" (click)="submit()">Submit</button>
+
+  </form>
+</div>
