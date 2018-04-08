@@ -152,7 +152,9 @@ INSERT INTO Rater VALUES
 	(11, 'sam@gmail.com', 'SuperSam', '2014-01-02', 'food critic',3),
 	(12, 'ali@gmail.com', 'LoudAli', '2013-03-04', 'online',3),
 	(13, 'bob@gmail.com', 'KingBob', '2014-01-18', 'online',3),
-	(14, 'kate@gmail.com', 'KateKills', '2015-03-02', 'blog',1);
+	(14, 'kate@gmail.com', 'KateKills', '2015-03-02', 'blog',1),
+	(15, 'john@gmail.com', 'John', '2009-09-07', 'food critic',5),
+	(16, 'rob@gmail.com', 'Rob', '2016-04-05', 'online',3);
 
 INSERT INTO Rating VALUES
 
@@ -226,8 +228,21 @@ INSERT INTO Rating VALUES
 	(12, '2018-03-15', 3, 4, 4, 5, 'Great food and staff, but slightly expensive, would reccommend to anyone craving korean bbq.', 11),
 	(10, '2018-10-15', 3, 4, 4, 5, 'I loved the food. ', 11),
 	(11, '2018-08-14', 4, 2, 3, 4, 'I didn''t really like food very much, quality was not that good.', 11),
-	(7, '2018-04-06', 4, 3, 2, 3, 'Food wasn''t that fresh, but not bad either.', 11);
-
+	(7, '2018-04-06', 4, 3, 2, 3, 'Food wasn''t that fresh, but not bad either.', 11),
+	
+	
+	--JOHN
+	(15, '2015-11-25', 3, 3, 3, 3, 'I have seen better forsure.', 7),
+	(15, '2015-08-25', 2, 3, 2, 3, 'Horrible.', 4),
+	(15, '2017-04-18', 3, 3, 3, 3, 'Better than the last time I came.', 4);
+	--mcds
+	(15, '2011-06-28', 2, 2, 2, 2, 'Gross.', 0),
+	(15, '2013-04-13', 4, 4, 1, 1, 'Horrible staff.', 0);
+	
+	--ROB
+	(16, '2015-08-30',4, 4, 4,4, 'Super yummy.', 0),
+	(16, '2017-11-28',5, 5, 5,5, 'Absolute favorite now.', 0);
+	
 INSERT INTO RatingItem VALUES
 	-- 0
 	(1, 2, '2018-07-27', 5, 'Mctasty!'),
@@ -287,9 +302,23 @@ INSERT INTO RatingItem VALUES
 	-- 11
 	(13, 37, '2018-04-12', 3,'The food wasn''t very fresh.'),
 	(12, 38, '2018-03-15', 4,'Great food and staff I WAS CRAVING good dessert.'),
-	(10, 39, '2018-10-15', 4, 'I loved the food.');
+	(10, 39, '2018-10-15', 4, 'I loved the food.'),
 
-
+	--John
+	(15, 26, '2015-11-25', 3, 'I loved the food.'),
+	(15, 14, '2015-08-25', 3, 'Crispy but very oily.'),
+	(15, 15, '2017-04-18', 3, 'Not enough crab but still good.'),
+	
+	
+	(15, 2, '2011-06-28', 2, 'Not cold at all.'),
+	(15, 1, '2013-04-13', 4, 'Favorite on the menu.'),
+	
+	
+	--ROB
+	
+	(16, 2, '2015-08-25', 4, 'Oreo Mcfurries wow.'),
+	(16, 1, '2017-04-18', 5, 'I eat BigMacs everyday now!');
+	
 INSERT INTO LOCATION VALUES
 	(0, '2008-10-03', 'Jesse Wellens', '123-245-6689', '121 Baseline Rd.', 7,22,0),
 	(1, '2011-11-20', 'Peter Parker', '321-495-8888', '20 Barhaven Centre', 8,21,1),
@@ -396,6 +425,26 @@ SELECT(case WHEN exists
 then 1 
 else 0 end);
 
+--m
 
+--Z = mcdonalds
+SELECT DISTINCT Rater.name, Rater.reputation, Rating.comments, RatingItem.comment, MenuItem.name, MenuItem.price
+FROM Rater, Rating, Restaurant, RatingItem, MenuItem
+WHERE Rater.userid = Rating.userid 
+	AND Restaurant.restaurantID = Rating.restaurantID
+	AND RatingItem.userid = Rater.userId
+	AND MenuItem.itemid = RatingItem.itemid
+	AND MenuItem.restaurantid = Restaurant.
+	AND Restaurant.name = 'McDonald''s'; --GROUP BY Rater.name, Rater.reputation HAVING COUNT(*) > 2;
+
+
+
+--n 100%
+SELECT DISTINCT Rater.name, Rater.email
+FROM Rater, Rating
+WHERE Rater.userid = Rating.userid AND (Rating.price + Rating.food + Rating.mood + Rating.staff) < ANY(
+SELECT (Rating.price + Rating.food + Rating.mood + Rating.staff) AS JohnRatings
+FROM Rating, Rater 
+WHERE Rating.userid = Rater.userid AND Rater.name = 'John');
 
 
