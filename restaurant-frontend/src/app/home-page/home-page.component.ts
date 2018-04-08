@@ -15,4 +15,8 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
   }
 
+  public goToRoute(route: string){
+    this.router.navigate([route]);
+  }
+
 }
