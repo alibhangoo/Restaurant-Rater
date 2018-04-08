@@ -8,6 +8,7 @@ CREATE TABLE Rater
 	join_date DATE,
 	type VARCHAR(20),
 	reputation INTEGER DEFAULT 1,
+	password VARCHAR,
 	CHECK (reputation < 6 AND reputation > 0)
 
 );
@@ -138,23 +139,23 @@ INSERT INTO MenuItem VALUES
 	(39, 'Beer', 'beverage', 'main', 'Cool brew of beer.', 3.99, 11);
 
 INSERT INTO Rater VALUES
-	(0, 'alantran@hotmail.com', 'AlanTran', '2018-04-04' , 'food critic', 5),
-	(1, 'shicritic@gmail.com' ,'ShiCritic', '2015-07-30', 'blog', 4),
-	(2, 'makboolean@gmail.com', 'Makboolean', '2017-12-15', 'online', 4),
-	(3, 'supersizeme@gmail.com', 'SuperSizeMe', '2016-03-24', 'blog', 3),
-	(4, 'kbdproductions@gmail.com', 'KBDproductions', '1998-08-11', 'online', 5),
-	(5, 'superofficial@gmail.com', 'DaymnDrops', '2008-06-15', 'online', 2),
-	(6, 'pete@gmail.com', 'FuriousPete', '2014-02-20', 'food critic',1),
-	(7, 'peterlam@gmail.com', 'PokeFire', '2017-07-18', 'food critic', 5),
-	(8, 'saeed@gmail.com', 'SaeedSlayer', '2016-01-17', 'blog',4),
-	(9, 'haider@gmail.com', 'HaiderGod', '2016-01-06', 'online',5),
-	(10, 'amir@gmail.com', 'FattyAmir', '2015-02-13', 'food critic',2),
-	(11, 'sam@gmail.com', 'SuperSam', '2014-01-02', 'food critic',3),
-	(12, 'ali@gmail.com', 'LoudAli', '2013-03-04', 'online',3),
-	(13, 'bob@gmail.com', 'KingBob', '2014-01-18', 'online',3),
-	(14, 'kate@gmail.com', 'KateKills', '2015-03-02', 'blog',1),
-	(15, 'john@gmail.com', 'John', '2009-09-07', 'food critic',5),
-	(16, 'rob@gmail.com', 'Rob', '2016-04-05', 'online',3);
+	(0, 'alantran@hotmail.com', 'AlanTran', '2018-04-04' , 'food critic', 5, 'pass0'),
+	(1, 'shicritic@gmail.com' ,'ShiCritic', '2015-07-30', 'blog', 4, 'pass1'),
+	(2, 'makboolean@gmail.com', 'Makboolean', '2017-12-15', 'online', 4, 'pass2'),
+	(3, 'supersizeme@gmail.com', 'SuperSizeMe', '2016-03-24', 'blog', 3, 'pass3'),
+	(4, 'kbdproductions@gmail.com', 'KBDproductions', '1998-08-11', 'online', 5, 'pass4'),
+	(5, 'superofficial@gmail.com', 'DaymnDrops', '2008-06-15', 'online', 2, 'pass5'),
+	(6, 'pete@gmail.com', 'FuriousPete', '2014-02-20', 'food critic',1, 'pass6'),
+	(7, 'peterlam@gmail.com', 'PokeFire', '2017-07-18', 'food critic', 5, 'pass7'),
+	(8, 'saeed@gmail.com', 'SaeedSlayer', '2016-01-17', 'blog',4, 'pass8'),
+	(9, 'haider@gmail.com', 'HaiderGod', '2016-01-06', 'online',5, 'pass9'),
+	(10, 'amir@gmail.com', 'FattyAmir', '2015-02-13', 'food critic',2,'pass10'),
+	(11, 'sam@gmail.com', 'SuperSam', '2014-01-02', 'food critic',3,'pass11'),
+	(12, 'ali@gmail.com', 'LoudAli', '2013-03-04', 'online',3, 'pass12'),
+	(13, 'bob@gmail.com', 'KingBob', '2014-01-18', 'online',3, 'pass13'),
+	(14, 'kate@gmail.com', 'KateKills', '2015-03-02', 'blog',1, 'pass14'),
+	(15, 'john@gmail.com', 'John', '2009-09-07', 'food critic',5, 'pass15'),
+	(16, 'rob@gmail.com', 'Rob', '2016-04-05', 'online',3, 'pass16');
 
 INSERT INTO Rating VALUES
 
@@ -234,10 +235,10 @@ INSERT INTO Rating VALUES
 	--JOHN
 	(15, '2015-11-25', 3, 3, 3, 3, 'I have seen better forsure.', 7),
 	(15, '2015-08-25', 2, 3, 2, 3, 'Horrible.', 4),
-	(15, '2017-04-18', 3, 3, 3, 3, 'Better than the last time I came.', 4);
+	(15, '2017-04-18', 3, 3, 3, 3, 'Better than the last time I came.', 4),
 	--mcds
 	(15, '2011-06-28', 2, 2, 2, 2, 'Gross.', 0),
-	(15, '2013-04-13', 4, 4, 1, 1, 'Horrible staff.', 0);
+	(15, '2013-04-13', 4, 4, 1, 1, 'Horrible staff.', 0),
 	
 	--ROB
 	(16, '2015-08-30',4, 4, 4,4, 'Super yummy.', 0),

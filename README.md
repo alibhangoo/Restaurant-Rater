@@ -1,2 +1,0 @@
-# Restaurant-Rater
-Database Project

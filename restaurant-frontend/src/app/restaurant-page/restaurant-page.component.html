@@ -9,9 +9,9 @@
 
 <div *ngIf="restaurantKeys">
   <div *ngFor="let key of restaurantKeys; let i = index">
-    <h1>Name: {{restaurants[key].Name}}</h1>
-    <p>Type: {{restaurants[key].Type}}</p>
-    <p>Points: {{restaurants[key].URL}}</p>
+    <h1>Name: {{restaurants[key].name}}</h1>
+    <p>Type: {{restaurants[key].type}}</p>
+    <p>Points: {{restaurants[key].url}}</p>
     <!-- <button (click)="onDeleteChore(key, i)">Delete Chore</button> -->
     <hr />
   </div>
