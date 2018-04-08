@@ -46,12 +46,11 @@ CREATE TABLE Location
 	manager_name VARCHAR(20),
 	phone_number VARCHAR(20),
 	street_address VARCHAR(20),
-	hour_open decimal(2,1),
-	hour_close decimal(2,1),
+	hour_open decimal(3,1),
+	hour_close decimal(3,1),
 	RestaurantID INTEGER
-	CHECK( hour_open < hour_close),
-	CHECK( hour_open < 24.0 AND hour_open >= 0.0),
-	CHECK( hour_close < 24.0 AND hour_close >= 0.0),
+	CHECK( hour_open <= 24.0 AND hour_open >= 0.0),
+	CHECK( hour_close <= 24.0 AND hour_close >= 0.0),
 	FOREIGN KEY(RestaurantID) REFERENCES Restaurant
 );
 
@@ -62,7 +61,7 @@ CREATE TABLE MenuItem
 	type VARCHAR(20),
 	category VARCHAR(20),
 	description VARCHAR,
-	price decimal(3,1),
+	price decimal(4,2),
 	RestaurantID INTEGER,
 	FOREIGN KEY (RestaurantID) REFERENCES Restaurant
 );
@@ -291,6 +290,31 @@ INSERT INTO RatingItem VALUES
 	(10, 39, '2018-10-15', 4, 'I loved the food.');
 
 
+INSERT INTO LOCATION VALUES
+	(0, '2008-10-03', 'Jesse Wellens', '123-245-6689', '121 Baseline Rd.', 7,22,0),
+	(1, '2011-11-20', 'Peter Parker', '321-495-8888', '20 Barhaven Centre', 8,21,1),
+	(2, '2013-07-09', 'Steve Rodgers', '666-123-8888', '11 Laurier St.', 6,20,2),
+	(3, '2014-03-22', 'Jimmy Greek', '666-422-8888', '88 Draper', 10,23.9,3),
+	(4, '2009-08-18', 'Candice Lalande', '666-126-8888', '919 Kanata', 0,23.9,4),
+	(5, '2015-05-14', 'Zac Dell', '666-486-8888', '7 Terry Fox', 7,21,5),
+	(6, '2016-04-15', 'Steve Jobs', '666-944-8888', '34 Kawilu', 8,22,6),
+	(7, '2010-01-11', 'Bob The Great', '666-645-8888', '1045 Albert St.', 9,19,7),
+	(8, '2011-04-15', 'Ash Catchem', '666-960-8888', 'Bayshore Mall', 08,20,8),
+	(9, '2012-10-30', 'Rebecca Castrence', '666-421-8888', 'Rideau Mall', 7,20,9),
+	(10, '2015-09-21', 'Sophie Hassen', '666-325-8888', 'University of Ottawa', 3,12,10),
+	(11, '2014-11-12', 'Peter Banghoo', '666-657-8888', 'Carleton', 05,12,11),
+	(12, '2009-01-01', 'Alan Tranny', '613-123-1234', '100 Baseline Rd.', 10, 19, 0),
+	(13, '2009-04-15', 'Haider Bhan', '613-271-0294', '121 Rideau Rd.', 9, 19, 1),
+	(14, '2010-03-20', 'Amy Shumer', '613-894-1928', '13 Markham Rd.', 10, 18, 2),
+	(15, '2011-04-20', 'Ronald Dol', '613-123-4442', '40 Hue Rd.', 10, 18, 4),
+	(16, '2008-03-25', 'Tinkle Bell', '613-512-5123', '18 Toodle Rd.', 10, 18, 5),
+	(17, '2010-02-28', 'Benjamin Haider', '613-918-1092', '488 Reddit Rd.', 10, 18, 6),
+	(18, '2007-04-13', 'Adolf Zao', '613-156-8272', '15 Westmount Rd.', 10, 18, 7),
+	(19, '2008-01-18', 'Stalin Ship', '613-129-4921', '32 Burger Rd.', 10, 18, 8),
+	(20, '2012-04-15', 'Jefferson Sin', '613-792-9123', '19 Harry Rd.', 8, 19, 9),
+	(21, '2013-10-30', 'Fadi Malek', '613-523-5291', '600 Lingerine Rd.', 8, 17, 10),
+	(22, '2004-05-16', 'Valentine Lo', '613-141-5966', '142 Stripper Rd.', 9, 19, 11);
+	
 --Restraurants and menus
 --a
 SELECT * FROM Restaurant AS R, Location AS L WHERE (R.RestaurantID = L.RestaurantID) AND (R.Name = User.nameR);
@@ -304,14 +328,12 @@ SELECT L.manager_name, L.first_open_date FROM Restaurant AS R, Location AS L WHE
 --d
 SELECT M.name, L.manager_name, L.hour_open, R.URL
 FROM Location AS L, Restaurant AS R, MenuItem AS M
-WHERE (L.RestaurantID = R.RestaurantID) AND (M.RestaurantID = R.RestaurantID) AND M.Price IN(SELECT MAX(M.price) AS maxMenu 
+WHERE (L.RestaurantID = R.RestaurantID) AND (M.RestaurantID = R.RestaurantID) AND M.Price IN(
+	SELECT MAX(M.price) AS maxMenu 
 	FROM MenuItem as M, Restaurant as R
 	WHERE (M.RestaurantID = R.RestaurantID) AND R.name = 'Popeyes');
 	
---HOURS OPEN CHANGE DECIMAL, PRICE!!!,
-INSERT INTO Location
-	VALUES (0, '2011-01-01', 'Ali Baghoo', '613-123-1234', 'Baseline Rd.', 1, 9, 6);
-
+--HOURS OPEN CHANGE DECIMAL, PRICE!!!
 --e
 
 SELECT R.Type, M.category, AVG(M.price) AS avgPriceCat 
