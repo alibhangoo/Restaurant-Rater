@@ -326,12 +326,12 @@ SELECT M.name, M.price,  M.type, M.Category, M.description FROM MenuItem AS M, R
 SELECT L.manager_name, L.first_open_date FROM Restaurant AS R, Location AS L WHERE R.RestaurantID = L.RestaurantID; --R.Categy = User.cat
 
 --d
-SELECT M.name, L.manager_name, L.hour_open, R.URL
+SELECT DISTINCT M.name, L.manager_name, L.hour_open, R.URL
 FROM Location AS L, Restaurant AS R, MenuItem AS M
-WHERE (L.RestaurantID = R.RestaurantID) AND (M.RestaurantID = R.RestaurantID) AND M.Price IN(
-	SELECT MAX(M.price) AS maxMenu 
-	FROM MenuItem as M, Restaurant as R
-	WHERE (M.RestaurantID = R.RestaurantID) AND R.name = 'Popeyes');
+WHERE (L.RestaurantID = R.RestaurantID) AND (M.RestaurantID = R.RestaurantID)  AND M.Price IN(
+	SELECT DISTINCT MAX(M2.price)
+	FROM MenuItem as M2, Restaurant as R2
+	WHERE (M2.RestaurantID = R2.RestaurantID) AND (R2.name = 'Popeyes')) AND (R.name = 'Popeyes');
 	
 --HOURS OPEN CHANGE DECIMAL, PRICE!!!
 --e
@@ -371,3 +371,31 @@ WHERE  R.restaurantid = L.restaurantid AND Rating.restaurantid = R.restaurantid 
 	(SELECT MAX(Xratings.food) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
 	OR rating.staff < (SELECT MAX(Xratings.staff) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
 	OR rating.staff <	(SELECT MAX(Xratings.mood) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 ))
+
+
+--i
+SELECT R.name, Rater.name --Type
+FROM Restaurant AS R, Rater, Rating
+WHERE R.Type = 'American' AND Rater.userid = Rating.userid AND Rating.restaurantid = R.restaurantid AND Rating.food IN
+	(SELECT DISTINCT MAX(Rating.food) FROM Rating, Restaurant as R2 WHERE R2.type = 'American'
+	);
+	
+	
+--j
+--GIVEN TYPE Y
+SELECT(case WHEN exists 
+	   	(SELECT COUNT(Rate) 
+		FROM Restaurant as R, Rating as Rate 
+		WHERE R.type = 'American' 
+		AND R.restaurantid = rate.restaurantid HAVING COUNT(*)> ANY(
+			SELECT COUNT(Rating)
+			FROM Restaurant AS R, Rating 
+			WHERE R.restaurantid = Rating.restaurantid 
+			GROUP BY R.type)
+		) 
+then 1 
+else 0 end);
+
+
+
+
