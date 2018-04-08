@@ -425,6 +425,32 @@ SELECT(case WHEN exists
 then 1 
 else 0 end);
 
+--k
+SELECT RT.Name, RT.join_date, RT.reputation, R.Name, RG.Date
+FROM Rater AS RT, Restaurant AS R, Rating AS RG
+WHERE RT.UserId IN
+(SELECT RT1.UserId
+ FROM Rater AS RT1 GROUP BY RT1.UserId HAVING
+		(SELECT AVG(RG1.Mood + RG1.Food)
+		FROM Rating AS RG1
+		WHERE RG1.UserId = RT1.UserId) >= ALL(
+		SELECT AVG(RG2.mood + RG2.food)
+		FROM Rating AS RG2, Rater AS RT2
+		WHERE RG2.UserId = RT2.UserId GROUP BY RT2.UserId))
+		AND RG.UserId = RT.UserId AND RG.RestaurantID = R.RestaurantID;
+		
+-- L
+
+SELECT RT.name, RT.join_date, RT.reputation, R.name, RG.Date 
+FROM Rater AS RT, Restaurant AS R, Rating AS RG 
+WHERE RT.UserId IN (SELECT RG1.UserId FROM Rater AS RG1 
+	WHERE
+		(SELECT AVG(mood) FROM Rating AS RT1 WHERE RT1.UserId = RG1.UserId)
+			>= ALL(SELECT AVG(mood) FROM Rating AS RT1 GROUP BY RT1.UserId)
+		OR (SELECT AVG(food) FROM Rating AS RT1 WHERE RT1.UserId = RG1.UserId)
+			>= ALL(SELECT AVG(food) FROM Rating AS RT1 GROUP BY RT1.UserId))
+		AND RG.UserId = RT.UserID AND RG.RestaurantID = R.RestaurantID;
+		
 --m
 
 --Z = mcdonalds
