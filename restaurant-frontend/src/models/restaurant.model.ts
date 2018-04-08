@@ -1,5 +1,6 @@
 export interface Restaurant{
-    title: string;
-    date: string;
-    points: number;
+    RestaurantID: number;
+    Name: string;
+    Type: string;
+    URL: string;
 }

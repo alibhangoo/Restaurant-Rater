@@ -6,19 +6,18 @@ import {Restaurant} from '../models/Restaurant.model';
 @Injectable()
 export class RestaurantService{
     constructor(private http: HttpClient){}
-/*
-    public getChores(): Observable<any>{
-        return this.http.get(dbroot + 'chore.json')
+
+    public getRestaurants(): Observable<any>{
+        return this.http.get('http://localhost:8080/restaurants')
 
     }
-    public createChore(chore: Chore):Observable<any>{
-        return this.http.post( dbroot + 'chore.json', chore);
+    public createRestaurant(restaurant: Restaurant):Observable<any>{
+        return this.http.post( 'http://localhost:8080/login' + 'chore.json', restaurant);
 
     }
 
-    public deleteChore(key: string): Observable<any>{
-        return this.http.delete(dbroot + 'chore/' + key + '.json')
+    public deleteRestaurant(key: string): Observable<any>{
+        return this.http.delete('http://localhost:8080/login' + 'chore/' + key + '.json')
     }
-    */
 
 }

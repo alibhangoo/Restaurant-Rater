@@ -6,3 +6,13 @@
   <option value="r2">Popeyes</option>
   <option value="r3">BBQ</option>
 </select>
+
+<div *ngIf="restaurantKeys">
+  <div *ngFor="let key of restaurantKeys; let i = index">
+    <h1>Name: {{restaurants[key].Name}}</h1>
+    <p>Type: {{restaurants[key].Type}}</p>
+    <p>Points: {{restaurants[key].URL}}</p>
+    <!-- <button (click)="onDeleteChore(key, i)">Delete Chore</button> -->
+    <hr />
+  </div>
+</div>
