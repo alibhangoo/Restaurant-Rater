@@ -1,10 +1,10 @@
 <h1 class = "text-center">Item Ratings</h1>
-<button class="text-center" (click)="goToRoute('home')">Return Home</button>
-<button class="text-center" (click)="goToRoute('ratings')">Return To Ratings</button>
+<button class="text-center" (click)="goToRoute('home')" mat-raised-button color="primary">Return Home</button>
+<button class="text-center" (click)="goToRoute('ratings')" mat-raised-button color="primary">Return To Ratings</button>
 <hr />
 
-<button class="text-center" (click)="displayRatingItems()">Display Item Ratings</button>
-<button class="text-center" (click)="goToRoute('addratingitem')">Add Item Ratings</button>
+<button class="text-center" (click)="displayRatingItems()" mat-raised-button color="primary">Display Item Ratings</button>
+<button class="text-center" (click)="goToRoute('addratingitem')" mat-raised-button color="primary">Add Item Ratings</button>
 
 
 <div *ngIf="ratingItemKeys">
