@@ -23,11 +23,15 @@ export class RatingsComponent implements OnInit {
   public ratings: any;
   public ratingKeys: string[];
 
+  public queryFArr: any;
+  public queryFArrKeys: string[];
 
+  public queryGArr: any;
+  public queryGArrKeys: string[];
 
   public userx = localStorage.getItem('username');
 
-  constructor(private router: Router,private restaurantService: RestaurantService, private ratingService : RatingServices, private raterService : RaterServices) { }
+  constructor(private router: Router,private restaurantService: RestaurantService, private ratingService : RatingServices, private raterService : RaterServices, private queryService : QueriesService) { }
   //private ratingServices: RatingServices
   ngOnInit() {
     this.restaurantService.getRestaurants().subscribe(
@@ -78,5 +82,29 @@ export class RatingsComponent implements OnInit {
    }
 
 
-  
+  public onSubmitQueryF():void{
+    this.queryService.queryF().subscribe(
+      (loadedResult: any) =>{
+        this.queryFArr = loadedResult;
+        this.queryFArrKeys = this.getKeys(this.queryFArr);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    ); 
+   }
+
+  public onSubmitQueryG():void{
+    this.queryService.queryG().subscribe(
+      (loadedResult: any) =>{
+        this.queryGArr = loadedResult;
+        this.queryGArrKeys = this.getKeys(this.queryGArr);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    ); 
+   }
+
+
 }

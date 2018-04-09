@@ -22,6 +22,16 @@ export class QueriesService {
         return this.http.get('http://localhost:8080/manager?type='+category)
 
     }
+    public queryD(id : string): Observable<any> {
+        return this.http.get('http://localhost:8080/expensiveItem?restaurant=' + id);
+    }
 
+    public queryF(): Observable<any> {
+        return this.http.get('http://localhost:8080/totalRatings');
+    }
+
+    public queryG(): Observable<any> {
+        return this.http.get('http://localhost:8080/notRatedJuly2015');
+    }
 
 }

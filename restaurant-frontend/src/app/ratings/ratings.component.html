@@ -1,4 +1,4 @@
-<h1 class = "text-center">Restaurants</h1>
+<h1 class = "text-center">Ratings</h1>
 <button class="text-center" (click)="goToRoute('home')">Return Home</button>
 <button class="text-center" (click)="goToRoute('addrating')">Add Rating</button>
 <hr />
@@ -24,3 +24,32 @@
       <hr />
     </div>
   </div>
+
+  <hr />
+
+<button class="button medium-btn" (click)="onSubmitQueryF()">Display the total number of rating for each restaurant, for each rater</button>
+
+<div *ngIf="queryFArrKeys">
+    <div *ngFor="let key of queryFArrKeys; let i = index">
+      <h3>Restaurant Name: {{(queryFArr[key]).restaurantname}}</h3>
+      <p>Name: {{(queryFArr[key]).name}}</p>
+      <p>Price Rating: {{(queryFArr[key]).price}}</p>
+      <p>Food Rating: {{(queryFArr[key]).food}}</p>
+      <p>Mood Rating: {{(queryFArr[key]).mood}}</p>
+      <p>Staff Rating: {{(queryFArr[key]).staff}}</p>
+      <hr />
+    </div>
+  </div>
+
+<hr />
+
+<button class="button medium-btn" (click)="onSubmitQueryG()">Display the details of the restaurants that have not been rated in January 2015!</button>
+
+<div *ngIf="queryGArrKeys">
+  <div *ngFor="let key of queryGArrKeys; let i = index">
+    <h3>Restaurant Name: {{(queryGArr[key]).name}}</h3>
+    <p>Phone Number: {{(queryGArr[key]).phone_number}}</p>
+    <p>Type: {{(queryGArr[key]).type}}</p>
+    <hr />
+  </div>
+</div>

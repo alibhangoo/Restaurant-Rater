@@ -62,7 +62,7 @@ export class RestaurantPageComponent implements OnInit {
 
   public onSubmitExpensive(form: NgForm):void{
 
-    this.restaurantService.queryD(form.value.idexpensive).subscribe(
+    this.queryService.queryD(form.value.idexpensive).subscribe(
       (results: any) =>{
         this.qD = results.result;
         this.qDKeys = this.getKeys(this.qD);
@@ -93,7 +93,6 @@ export class RestaurantPageComponent implements OnInit {
  
    }
 
-<<<<<<< HEAD
 
   public onSubmitDelete(form: NgForm):void{
    
@@ -114,7 +113,6 @@ export class RestaurantPageComponent implements OnInit {
     form.resetForm();
  
    }
-=======
    public changView(wantedView : string){
       if(wantedView == "restaurant"){
         this.isRestaurant = true;
@@ -123,7 +121,6 @@ export class RestaurantPageComponent implements OnInit {
         this.isRestaurant = false;
       }
   }
->>>>>>> 5b7537a40c1490028af969f3b12f6c5548e97e76
   
 
 }
