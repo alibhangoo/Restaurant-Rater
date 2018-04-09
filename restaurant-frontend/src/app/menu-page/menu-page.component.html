@@ -1,6 +1,9 @@
 <h1 class = "text-center">Menus</h1>
 <button class="text-center" (click)="goToRoute('home')">Home</button>
 <button class="text-center" (click)="goToRoute('addMenuItem')">Add Menu Item</button>
+<button class="text-center" (click)="changeView('category')" *ngIf="isRestaurant">Select by Restaurant</button>
+<button class="text-center" (click)="changeView('category')" *ngIf="isRestaurant">Select by Category</button>
+
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <option value="">Select Restaurant</option>
@@ -9,3 +12,16 @@
       </select>
       <button type="submit">Submit</button>
  </form>
+
+
+ <div *ngIf="menuItemKeys">
+        <div *ngFor="let key of menuItemKeys; let i = index">
+          <h1>Name: {{menuItems[key].name}}</h1>
+          <p>Type: {{menuItems[key].type}}</p>
+          <p>Category: {{menuItems[key].category}}</p>
+          <p>Description: {{menuItems[key].description}}</p>
+          <p>Price: ${{menuItems[key].price}}</p>
+          <button (click)="deleteMenuItem(menuItems[key].name)">Delete Item</button>
+          <hr />
+        </div>
+</div>

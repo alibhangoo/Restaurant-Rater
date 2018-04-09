@@ -19,6 +19,7 @@ export class RestaurantPageComponent implements OnInit {
   public clicked: boolean= false;
   public selectedRes: string;
 
+  public isRestaurant: boolean = true;
 
   //QUERY A
   public qA: any;
@@ -92,6 +93,7 @@ export class RestaurantPageComponent implements OnInit {
  
    }
 
+<<<<<<< HEAD
 
   public onSubmitDelete(form: NgForm):void{
    
@@ -112,6 +114,16 @@ export class RestaurantPageComponent implements OnInit {
     form.resetForm();
  
    }
+=======
+   public changView(wantedView : string){
+      if(wantedView == "restaurant"){
+        this.isRestaurant = true;
+      }
+      else{
+        this.isRestaurant = false;
+      }
+  }
+>>>>>>> 5b7537a40c1490028af969f3b12f6c5548e97e76
   
 
 }

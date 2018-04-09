@@ -23,6 +23,14 @@ public class RestaurantController {
         return restaurant;
     }
 
+    @RequestMapping(value = {"/restaurantCategories"}, method = RequestMethod.GET)
+    public List restaurantCategories(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        List results = restaurantDao.findCategories();
+
+        return results;
+    }
+
     @RequestMapping(value="/restaurant/add", method = RequestMethod.POST)
     public Map<String, Object> addRestaurant(@RequestBody Restaurant restaurant){
         HashMap<String, Object> map = new HashMap<>();

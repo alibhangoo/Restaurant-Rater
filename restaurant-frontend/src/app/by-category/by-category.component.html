@@ -1,0 +1,20 @@
+<h1 class = "text-center">Search By Category</h1>
+<button class="text-center" (click)="goToRoute('home')">Return Home</button>
+<button class="text-center" (click)="goToRoute('restaurants')">Go Back</button>
+<hr />
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <option value="">Select Category</option>
+  <select type="text" name="category" ngModel>
+    <option *ngFor="let key of categoryKeys; let i = index" [value]="(categories[key]).type">{{(categories[key]).type}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+<div *ngIf="qCKeys">
+    <div *ngFor="let key of qCKeys; let i = index">
+      <h1>Manager Name: {{qC[key].manager_name}}</h1>
+      <p>First Open Date: {{qC[key].first_open_date}}</p>
+      <hr />
+    </div>
+  </div>

@@ -18,5 +18,10 @@ export class MenuItemServices {
 
     }
 
+    public deleteMenuItem(menuItemName: String):Observable<any>{
+        return this.http.post( 'http://localhost:8080/menuitem/delete', menuItemName);
+
+    }
+
 
 }

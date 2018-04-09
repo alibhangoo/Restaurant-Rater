@@ -1,6 +1,8 @@
 <h1 class = "text-center">Restaurants</h1>
 <button class="text-center" (click)="goToRoute('home')">Return Home</button>
 <button class="text-center" (click)="goToRoute('addrestaurant')">Add Restaurant</button>
+<!-- <button class="text-center" (click)="changeView('restaurant')" *ngIf="!isRestaurant">Select by Restaurant</button> -->
+<button class="text-center" (click)="goToRoute('byCategory')">Select by Category</button>
 <hr />
 
 <!-- <h1>{{qAKeys[0]}}</h1> -->
@@ -45,6 +47,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <hr />
 
 <form (ngSubmit)="onSubmitExpensive(g)" #g="ngForm">
@@ -69,3 +72,5 @@
 
 
   
+=======
+>>>>>>> 5b7537a40c1490028af969f3b12f6c5548e97e76

@@ -15,11 +15,15 @@ import { RegisterComponent } from './register/register.component';
 import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { MenuItemServices } from '../services/menu-item.service';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+<<<<<<< HEAD
 import { RatingsComponent } from './ratings/ratings.component';
 import { RatingServices } from '../services/ratings.service';
 import { AddRatingComponent } from './add-rating/add-rating.component';
 
 
+=======
+import { ByCategoryComponent } from './by-category/by-category.component';
+>>>>>>> 5b7537a40c1490028af969f3b12f6c5548e97e76
 
 @NgModule({
   declarations: [
@@ -31,8 +35,12 @@ import { AddRatingComponent } from './add-rating/add-rating.component';
     RegisterComponent,
     AddMenuItemComponent,
     AddRestaurantComponent,
+<<<<<<< HEAD
     RatingsComponent,
     AddRatingComponent
+=======
+    ByCategoryComponent
+>>>>>>> 5b7537a40c1490028af969f3b12f6c5548e97e76
   ],
   imports: [
     BrowserModule,

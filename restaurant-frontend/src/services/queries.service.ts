@@ -10,9 +10,18 @@ import {Location} from '../models/Location.model';
 export class QueriesService {
     constructor(private http: HttpClient){}
 
-    public queryA(id : string): Observable<any> {
-        return this.http.get('http://localhost:8080/restaurant?id='+ id);
+    public queryA(restaurantid : string): Observable<any> {
+        return this.http.get('http://localhost:8080/restaurant?id='+ restaurantid);
     }
 
-    
+    public queryB(restaurantid : string): Observable<any> {
+        return this.http.get('http://localhost:8080/menuitems?restaurant='+ restaurantid);
+    }
+
+    public queryC(category:string): Observable<any>{
+        return this.http.get('http://localhost:8080/manager?type='+category)
+
+    }
+
+
 }
