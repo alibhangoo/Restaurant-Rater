@@ -1,12 +1,12 @@
 <h1 class = "text-center">Search By Category</h1>
 <button class="text-center" (click)="goToRoute('home')">Return Home</button>
-<button class="text-center" (click)="goToRoute('restaurant')">Go Back</button>
+<button class="text-center" (click)="goToRoute('restaurants')">Go Back</button>
 <hr />
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <option value="">Select Category</option>
   <select type="text" name="category" ngModel>
-    <option *ngFor="let key of categoryKeys; let i = index" [value]="categoryKeys[key]">{{categoryKeys[key]}}</option>
+    <option *ngFor="let key of categoryKeys; let i = index" [value]="(categories[key]).type">{{(categories[key]).type}}</option>
   </select>
   <button type="submit">Submit</button>
 </form>

@@ -25,7 +25,9 @@ export class ByCategoryComponent implements OnInit {
     this.restaurantService.getCategories().subscribe(
       (loadedCategory: any) =>{
         this.categories = loadedCategory;
+        console.log(this.categories);
         this.categoryKeys = this.getKeys(this.categories);
+        console.log(this.categoryKeys);
       },
         (err:any) =>{
           console.log(err);
@@ -42,7 +44,8 @@ export class ByCategoryComponent implements OnInit {
   }
 
   public onSubmit(form: NgForm):void{
-    this.queryService.queryC(form.value.id).subscribe(
+    console.log(form.value.category)
+    this.queryService.queryC(form.value.category).subscribe(
       (loadedResult: any) =>{
         this.qC = loadedResult.result;
         this.qCKeys = this.getKeys(this.qC);
