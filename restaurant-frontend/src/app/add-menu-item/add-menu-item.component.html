@@ -1,0 +1,46 @@
+<h1 class = "text-center">Add Menu Item</h1>
+
+<div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <option value="">Select Restaurant</option>
+        <select type="number" name="restaurantID" ngModel>
+            <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
+          </select>
+
+        <div class="div">
+        <label>Name</label>
+        <input type="text" name="name" ngModel />
+        </div>
+    
+        <div class="div">
+        <label>Type</label>
+        <select type="text" name="type" ngModel>
+            <option value="food">Food</option>
+            <option value="beverage">Beverage</option>
+          </select>
+        </div>
+    
+        <div class="div">
+        <label>Category</label>
+        <select type="text" name="category" ngModel>
+            <option value="starter">Starter</option>
+            <option value="main">Main</option>
+            <option value="dessert">Dessert</option>
+          </select>
+        </div>
+        
+        <div class="div">
+        <label>Description</label>
+        <input type="text" name="description" ngModel />
+        </div>  
+        
+        <div class="div">
+        <label>Price</label>
+        <input type="number" name="price" ngModel />
+        </div>    
+    
+        <button type="submit">Submit</button>
+        <button (click)="goToRoute('menus')">Back</button>
+    </form>
+    
+    </div>

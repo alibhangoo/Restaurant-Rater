@@ -12,6 +12,8 @@ import { RestaurantService } from '../services/restaurant.service';
 import { RaterServices } from '../services/rater.service';
 import { QueriesService } from "../services/queries.service";
 import { RegisterComponent } from './register/register.component';
+import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
+import { MenuItemServices } from '../services/menu-item.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { RegisterComponent } from './register/register.component';
     LoginPageComponent,
     RestaurantPageComponent,
     MenuPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddMenuItemComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RaterServices,RestaurantService, QueriesService],
+  providers: [RaterServices,RestaurantService, QueriesService, MenuItemServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

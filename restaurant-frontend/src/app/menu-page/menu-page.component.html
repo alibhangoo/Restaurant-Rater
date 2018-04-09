@@ -1,2 +1,11 @@
 <h1 class = "text-center">Menus</h1>
 <button class="text-center" (click)="goToRoute('home')">Home</button>
+<button class="text-center" (click)="goToRoute('addMenuItem')">Add Menu Item</button>
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <option value="">Select Restaurant</option>
+      <select type="text" name="id" ngModel>
+        <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
+      </select>
+      <button type="submit">Submit</button>
+ </form>

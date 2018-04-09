@@ -5,6 +5,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
 import { RegisterComponent } from './register/register.component';
+import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,9 @@ const routes: Routes = [
     {path: 'login', component: LoginPageComponent},
     {path: 'menus', component: MenuPageComponent},
     {path: 'restaurants', component: RestaurantPageComponent},
-    {path: 'register', component: RegisterComponent}
+    {path: 'register', component: RegisterComponent},
+    {path: 'addMenuItem', component: AddMenuItemComponent}
+    
 ];
 
 @NgModule({
