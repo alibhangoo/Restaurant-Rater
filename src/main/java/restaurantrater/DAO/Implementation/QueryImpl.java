@@ -155,17 +155,27 @@ public class QueryImpl {
     }
 
     public List queryM(Restaurant restaurant) {
-        String sql = "SELECT DISTINCT Rater.name, Rater.reputation, Rating.comments as ratingComment, RatingItem.comment as ratingItemComment, MenuItem.name as menuItemName, MenuItem.price\n" +
-                "FROM Rater, Rating, Restaurant, RatingItem, MenuItem\n" +
-                "WHERE Rater.userid = Rating.userid \n" +
-                "\tAND Restaurant.restaurantID = Rating.restaurantID\n" +
-                "\tAND RatingItem.userid = Rater.userId\n" +
-                "\tAND MenuItem.itemid = RatingItem.itemid\n" +
-                "\tAND MenuItem.restaurantid = Restaurant.restaurantID\n" +
-                "\tAND Restaurant.name = ?; --GROUP BY Rater.name, Rater.reputation HAVING COUNT(*) > 2;";
+        String sql = "\n" +
+                "SELECT DISTINCT RT.name, RT.reputation,RG.comments, MenuItem.name as menuItemName, MenuItem.price \n" +
+                "FROM Rating AS RG, Rater AS RT, RatingItem, MenuItem\n" +
+                "WHERE \n" +
+                "\tRT.userId IN (SELECT RT1.userId \n" +
+                "\t\t\t\tFROM Rater AS RT1 \n" +
+                "\t\t\t\tWHERE\n" +
+                "\t\t(SELECT COUNT(*) FROM Rating AS RG1 WHERE RG1.userId = RT1.userId AND\n" +
+                "\t\t\tRatingItem.userid = RT.userid \n" +
+                "\t\t\tAND RatingItem.itemid = menuitem.itemid\n" +
+                "\t\t\tAND RG1.restaurantid = menuitem.restaurantid\n" +
+                "\t\t\tAND RG1.restaurantId IN (SELECT R.restaurantId \n" +
+                "\t\t\t\t\t\t\t\tFROM Restaurant AS R \n" +
+                "\t\t\t\t\t\t\t\tWHERE R.name =?)) >=  All(SELECT COUNT(*) FROM Rating AS RG2 WHERE \n" +
+                "\t\t\tRG2.restaurantId IN (SELECT R.restaurantId FROM Restaurant AS R WHERE\n" +
+                "\t\t\t\tR.name =?) GROUP BY RG2.userId))\n" +
+                "\tAND RG.userId = RT.userId AND RG.restaurantId IN (SELECT R.restaurantId FROM Restaurant AS R WHERE\n" +
+                "\t\t\t\tR.name =?);";
 
 
-        Object[] params = {restaurant.getName()};
+        Object[] params = {restaurant.getName(),restaurant.getName(),restaurant.getName()};
 
         List results = jdbcTemplate.queryForList(sql,params);
         return results;
