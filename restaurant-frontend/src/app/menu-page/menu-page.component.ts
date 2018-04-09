@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import { RestaurantService } from '../../services/restaurant.service';
 import { QueriesService } from '../../services/queries.service';
@@ -12,7 +12,6 @@ import { MenuItemServices } from '../../services/menu-item.service';
 })
 
 export class MenuPageComponent implements OnInit {
-
   public restaurants: any;
   public restaurantKeys: string[];
 
@@ -59,15 +58,15 @@ export class MenuPageComponent implements OnInit {
    }
 
   
-   public deleteMenuItem(menuItemName : string){
+   public deleteMenuItem(menuItemName : string, menuItemKey: string, index:number){
   
     this.menuItemService.deleteMenuItem(menuItemName).subscribe(
       (response : any) => {
         console.log(response);
       }
     )
+    this.menuItemKeys.splice(index, 1);
+    delete this.menuItems[menuItemKey];
   }
-
-
   
 }

@@ -23,5 +23,14 @@ export class QueriesService {
 
     }
 
+    public queryE(): Observable<any>{
+        return this.http.get('http://localhost:8080/averagePrices')
+    }
+
+    public queryH(userid: string): Observable<any>{
+        return this.http.get('http://localhost:8080/staffRatingLowerThan?user='+userid)
+    }
+
+
 
 }

@@ -16,6 +16,8 @@ import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { MenuItemServices } from '../services/menu-item.service';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
+import { AverageItemsComponent } from './average-items/average-items.component';
+import { NameDateXComponent } from './name-date-x/name-date-x.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ByCategoryComponent } from './by-category/by-category.component';
     RegisterComponent,
     AddMenuItemComponent,
     AddRestaurantComponent,
-    ByCategoryComponent
+    ByCategoryComponent,
+    AverageItemsComponent,
+    NameDateXComponent
   ],
   imports: [
     BrowserModule,

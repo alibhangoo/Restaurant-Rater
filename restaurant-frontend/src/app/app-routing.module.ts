@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
+import { AverageItemsComponent } from './average-items/average-items.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'addMenuItem', component: AddMenuItemComponent},
     {path: 'addrestaurant', component: AddRestaurantComponent},
-    {path: 'byCategory', component: ByCategoryComponent}
+    {path: 'byCategory', component: ByCategoryComponent},
+    {path: 'averageItems', component: AverageItemsComponent}
 ];
 
 @NgModule({
