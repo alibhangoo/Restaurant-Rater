@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import restaurantrater.DAO.Implementation.QueryImpl;
 import restaurantrater.DAO.LocationDao;
 import restaurantrater.DAO.MenuItemDao;
+import restaurantrater.DAO.RaterDao;
 import restaurantrater.DAO.RestaurantDao;
 import restaurantrater.Models.Location;
 import restaurantrater.Models.MenuItem;
@@ -26,6 +27,9 @@ public class QueryController {
 
     @Autowired
     private RestaurantDao restaurantDao;
+
+    @Autowired
+    private RaterDao raterDao;
 
     @Autowired
     private QueryImpl queryImpl;
@@ -143,14 +147,13 @@ public class QueryController {
         return results;
     }
 
-    @RequestMapping(value = {"/queryh"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/staffRatingLowerThan"}, method = RequestMethod.GET)
     public Map<String, Object> queryH(@RequestParam Map<String,String> allRequestParams) {
         HashMap<String, Object> map = new HashMap<>();
-        if (allRequestParams.size() == 1 && allRequestParams.get("restaurant") != null && allRequestParams.get("restaurant").matches("[-+]?\\d*\\.?\\d+")) {
-            int id = Integer.parseInt(allRequestParams.get("restaurant"));
-            Restaurant restaurant = restaurantDao.findRestaurantById(id);
+        if (allRequestParams.size() == 1 && allRequestParams.get("user") != null && allRequestParams.get("user").matches("[-+]?\\d*\\.?\\d+")) {
+            int id = Integer.parseInt(allRequestParams.get("user"));
 
-            List result = queryImpl.mostExpensive(restaurant.getName());
+            List result = queryImpl.queryH(id);
             map.put("result",result);
             map.put("status","success");
         }
@@ -162,7 +165,88 @@ public class QueryController {
         return map;
     }
 
+    @RequestMapping(value = {"/highestFoodRating"}, method = RequestMethod.GET)
+    public Map<String, Object> queryI(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        if (allRequestParams.size() == 1 && allRequestParams.get("type") != null) {
 
+            List result = queryImpl.queryI(allRequestParams.get("type"));
+            map.put("result",result);
+            map.put("status","success");
+        }
+        else {
+            map.put("status", "error");
+            map.put("error","Invalid parameters");
+        }
+
+        return map;
+    }
+
+    @RequestMapping(value = {"/morePopular"}, method = RequestMethod.GET)
+    public Map<String, Object> queryJ(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        if (allRequestParams.size() == 1 && allRequestParams.get("type") != null) {
+
+            List result = queryImpl.queryJ(allRequestParams.get("type"));
+            map.put("result", result);
+            map.put("status", "success");
+        } else {
+            map.put("status", "error");
+            map.put("error", "Invalid parameters");
+        }
+
+        return map;
+    }
+
+    @RequestMapping(value = {"/highestOverallRating1"}, method = RequestMethod.GET)
+    public List queryK(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        List results = queryImpl.queryK();
+
+        return results;
+    }
+
+    @RequestMapping(value = {"/highestOverallRating2"}, method = RequestMethod.GET)
+    public List queryL(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        List results = queryImpl.queryL();
+
+        return results;
+    }
+
+    @RequestMapping(value = {"/mostFrequent"}, method = RequestMethod.GET)
+    public Map<String, Object> queryM(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        if (allRequestParams.size() == 1 && allRequestParams.get("restaurant") != null) {
+            int id = Integer.parseInt(allRequestParams.get("restaurant"));
+
+            List result = queryImpl.queryM(restaurantDao.findRestaurantById(id));
+            map.put("result", result);
+            map.put("status", "success");
+        } else {
+            map.put("status", "error");
+            map.put("error", "Invalid parameters");
+        }
+
+        return map;
+    }
+
+    @RequestMapping(value = {"/lowerThan"}, method = RequestMethod.GET)
+    public Map<String, Object> queryN(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        if (allRequestParams.size() == 1 && allRequestParams.get("user") != null) {
+            int id = Integer.parseInt(allRequestParams.get("user"));
+
+            List result = queryImpl.queryN(raterDao.findByUserId(id));
+            map.put("result", result);
+            map.put("status", "success");
+        } else {
+            map.put("status", "error");
+            map.put("error", "Invalid parameters");
+        }
+
+        return map;
+    }
 
 
 }

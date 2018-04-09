@@ -24,6 +24,14 @@ public class RaterDaoImpl implements RaterDao {
         return rater;
     }
 
+    public Rater findByUserId(int id){
+        String sql = "SELECT * FROM Rater WHERE UserID = ?";
+        Rater rater = (Rater) jdbcTemplate.queryForObject(
+                sql, new Object[] { id },
+                new BeanPropertyRowMapper(Rater.class));
+        return rater;
+    }
+
     public boolean checkName(String name) {
         Integer count = jdbcTemplate.queryForObject(
                 "SELECT COUNT(*) FROM Rater WHERE name = ?", Integer.class, name);
