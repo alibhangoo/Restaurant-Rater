@@ -69,4 +69,11 @@ public class RestaurantDaoImpl implements RestaurantDao {
         jdbcTemplate.update(sql, params);
         return restaurant;
     }
+
+    public List findCategories() {
+        String sql = "SELECT DISTINCT Restaurant.Type FROM Restaurant;";
+
+        List results = jdbcTemplate.queryForList(sql);
+        return results;
+    }
 }

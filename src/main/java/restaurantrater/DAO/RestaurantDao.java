@@ -26,4 +26,6 @@ public interface RestaurantDao {
     public Restaurant delete(Restaurant restaurant);
 
     public List findRestaurantsByCategory(String type);
-}
+
+    public List findCategories();
+    }
