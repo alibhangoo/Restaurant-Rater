@@ -361,7 +361,7 @@ FROM Location AS L, Restaurant AS R, MenuItem AS M
 WHERE (L.RestaurantID = R.RestaurantID) AND (M.RestaurantID = R.RestaurantID)  AND M.Price IN(
 	SELECT DISTINCT MAX(M2.price)
 	FROM MenuItem as M2, Restaurant as R2
-	WHERE (M2.RestaurantID = R2.RestaurantID) AND (R2.name = 'Popeyes')) AND (R.name = 'Popeyes');
+	WHERE (M2.RestaurantID = R2.RestaurantID) AND (R2.name = 'The Fry')) AND (R.name = 'The Fry');
 	
 --HOURS OPEN CHANGE DECIMAL, PRICE!!!
 --e
@@ -400,7 +400,7 @@ WHERE  R.restaurantid = L.restaurantid AND Rating.restaurantid = R.restaurantid 
 	--(SELECT MAX(Xratings.price) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
 	(SELECT MAX(Xratings.food) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
 	OR rating.staff < (SELECT MAX(Xratings.staff) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
-	OR rating.staff <	(SELECT MAX(Xratings.mood) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )ORDER BY L.first_open_date)
+	OR rating.staff <	(SELECT MAX(Xratings.mood) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 ))
 
 
 --i
@@ -454,6 +454,21 @@ WHERE RT.UserId IN (SELECT RG1.UserId FROM Rater AS RG1
 		
 --m
 
+SELECT RT.name, RT.reputation, RG.comments
+FROM Rating AS RG, Rater AS RT
+WHERE 
+	RT.userId IN (SELECT RT1.userId 
+				FROM Rater AS RT1 
+				WHERE
+		(SELECT COUNT(*) FROM Rating AS RG1 WHERE RG1.userId = RT1.userId AND
+			RG1.restaurantId IN (SELECT R.restaurantId 
+								FROM Restaurant AS R 
+								WHERE R.name ='Popeyes')) >=  All(SELECT COUNT(*) FROM Rating AS RG2 WHERE 
+			RG2.restaurantId IN (SELECT R.restaurantId FROM Restaurant AS R WHERE
+				R.name ='Popeyes') GROUP BY RG2.userId))
+	AND RG.userId = RT.userId AND RG.restaurantId IN (SELECT R.restaurantId FROM Restaurant AS R WHERE
+				R.name ='Popeyes') 
+				
 --Z = mcdonalds
 SELECT DISTINCT Rater.name, Rater.reputation, Rating.comments, RatingItem.comment, MenuItem.name, MenuItem.price
 FROM Rater, Rating, Restaurant, RatingItem, MenuItem
