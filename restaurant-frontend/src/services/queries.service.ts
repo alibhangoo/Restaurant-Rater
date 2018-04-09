@@ -33,7 +33,6 @@ export class QueriesService {
     public queryG(): Observable<any> {
         return this.http.get('http://localhost:8080/notRatedJuly2015');
     }
-
     public queryE(): Observable<any>{
         return this.http.get('http://localhost:8080/averagePrices');
     }
@@ -46,6 +45,21 @@ export class QueriesService {
         return this.http.get('http://localhost:8080/morePopular?type='+category);
     }
 
+    public queryI(userid: string): Observable<any>{
+        return this.http.get('http://localhost:8080/highestFoodRating?type='+userid);
+    }
+
+    public queryK(): Observable<any>{
+        return this.http.get('http://localhost:8080/highestOverallRating1');
+    }
+
+    public queryL(): Observable<any>{
+        return this.http.get('http://localhost:8080/highestOverallRating2');
+    }
+
+    public queryN(): Observable<any>{
+        return this.http.get('http://localhost:8080/lowerThan?user=15');
+    }
 
 
 }
