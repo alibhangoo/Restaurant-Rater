@@ -11,9 +11,9 @@
 
 <!-- (change) ="method($event.target.value)" -->
 <div>
-    <form (ngSubmit)="onSubmitDelete(g)" #g="ngForm">
+    <form (ngSubmit)="onSubmitDelete(z)" #z="ngForm">
         <option value="">Select Restaurant To Be Deleted</option>
-        <select type="text" name="id" ngModel>
+        <select type="text" name="x" ngModel>
             <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
         </select>
       <button type="submit" mat-raised-button color="primary">Delete Selected Restaurant</button>

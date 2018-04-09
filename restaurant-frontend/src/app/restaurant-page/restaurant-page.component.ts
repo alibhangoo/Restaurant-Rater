@@ -50,14 +50,6 @@ export class RestaurantPageComponent implements OnInit {
     this.router.navigate([route]);
   }
 
-  public deleteRest(restName : string){
-    this.restaurantService.deleteRestaurant(restName).subscribe(
-      (response : any) => {
-        console.log(response);
-      }
-    )
-  }
-
   public getKeys(obj: any): string[]{
     return Object.keys(obj); //random order
   }
@@ -99,7 +91,7 @@ export class RestaurantPageComponent implements OnInit {
 
   public onSubmitDelete(form: NgForm):void{
    
-    this.restaurantService.deleteRestaurant(this.restaurants[form.value.id].name).subscribe(
+    this.restaurantService.deleteRestaurant(this.restaurants[form.value.x].name).subscribe(
       (response: any) =>{
         this.clicked = true
 
@@ -116,6 +108,7 @@ export class RestaurantPageComponent implements OnInit {
     form.resetForm();
  
    }
+
    public changView(wantedView : string){
       if(wantedView == "restaurant"){
         this.isRestaurant = true;
