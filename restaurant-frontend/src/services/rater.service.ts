@@ -20,5 +20,8 @@ export class RaterServices {
         return this.http.post('http://localhost:8080/register', register)
     }
 
+    public delete(username: string): Observable<any> {
+        return this.http.post('http://localhost:8080/user/delete', username)
+    }
     
 }

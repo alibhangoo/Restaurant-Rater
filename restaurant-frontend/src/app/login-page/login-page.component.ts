@@ -12,6 +12,7 @@ import { RaterServices } from '../../services/rater.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  public res : string;
 
   constructor(private router: Router, private raterServices: RaterServices) { }
 
@@ -33,8 +34,10 @@ export class LoginPageComponent implements OnInit {
     (response : any) => {
       let rUsername : string = response.username;
       localStorage.setItem('username', rUsername);
-      let user = (localStorage.getItem('username'));
-      console.log(user)
+      console.log(response.status);
+      if(response.status == 'success'){
+        this.goToRoute('home');
+      }
     },
     (err: any) => {
       console.log(err);
@@ -42,6 +45,5 @@ export class LoginPageComponent implements OnInit {
   )
 
   }
-
 
 }

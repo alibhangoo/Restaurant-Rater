@@ -16,5 +16,5 @@ export class MenuPageComponent implements OnInit {
   public goToRoute(route: string){
     this.router.navigate([route]);
   }
-
+  
 }

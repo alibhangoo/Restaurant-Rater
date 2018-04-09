@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { RaterServices } from '../../services/rater.service';
+
 
 @Component({
   selector: 'app-home-page',
@@ -8,15 +10,31 @@ import { Router } from '@angular/router'
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public user = localStorage.getItem('username');
 
-  
+  constructor(private router: Router,private raterServices: RaterServices) { }
   
   ngOnInit() {
   }
 
   public goToRoute(route: string){
     this.router.navigate([route]);
+  }
+
+  public onDelete(user): void{
+ 
+  this.raterServices.delete(user).subscribe(
+    (response : any) => {
+     
+      console.log(response)
+    },
+    (err: any) => {
+      console.log(err);
+    }
+  )
+
+  this.goToRoute('login');
+
   }
 
 }

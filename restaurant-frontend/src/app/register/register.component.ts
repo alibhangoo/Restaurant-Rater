@@ -10,6 +10,8 @@ import { Register } from '../../models/register.model';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  public res : string;
+  public clicked: boolean= false;
 
   constructor(private router: Router, private raterServices: RaterServices) { }
 
@@ -35,11 +37,21 @@ export class RegisterComponent implements OnInit {
   this.raterServices.register(register).subscribe(
     (response : any) => {
       console.log(response)
+
+      this.clicked = true
+
+      if(response.status == 'success')
+        this.goToRoute("login")
+      else
+        this.res = "Username already taken!"
+        
     },
     (err: any) => {
       console.log(err);
     }
   )
+
+  form.resetForm(form);
 
   }
 
