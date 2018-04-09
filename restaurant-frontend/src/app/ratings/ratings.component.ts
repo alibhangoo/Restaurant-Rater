@@ -46,6 +46,7 @@ export class RatingsComponent implements OnInit {
 
   public queryNArr: any;
   public queryNArrKeys: string[];
+  
 
   public userx = localStorage.getItem('username');
 
