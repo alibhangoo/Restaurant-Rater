@@ -12,6 +12,7 @@ import { RestaurantService } from '../services/restaurant.service';
 import { RaterServices } from '../services/rater.service';
 import { QueriesService } from "../services/queries.service";
 import { RegisterComponent } from './register/register.component';
+import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     LoginPageComponent,
     RestaurantPageComponent,
     MenuPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddRestaurantComponent,
   ],
   imports: [
     BrowserModule,

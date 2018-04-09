@@ -1,10 +1,25 @@
 <h1 class = "text-center">Restaurants</h1>
-<button class="text-center" (click)="goToRoute('home')">Home</button>
+<button class="text-center" (click)="goToRoute('home')">Return Home</button>
+<button class="text-center" (click)="goToRoute('addrestaurant')">Add Restaurant</button>
+<hr />
 
 <!-- <h1>{{qAKeys[0]}}</h1> -->
 <!-- <button (click)="onDeleteChore(key, i)">Delete Chore</button> -->
 
 <!-- (change) ="method($event.target.value)" -->
+<div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+      <div>
+        <section>
+            <input type="text" name="restaurantName" />
+            <label for="demo">Restaurant Name</label>
+          </section>
+      </div>
+      <button class="text-center" (click)="deleteRest()">Delete Selected Restaurant</button>
+    </form>
+  </div>
+
+<hr />
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <option value="">Select Restaurant</option>

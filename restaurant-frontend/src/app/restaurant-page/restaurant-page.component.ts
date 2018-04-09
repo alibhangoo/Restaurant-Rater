@@ -43,6 +43,14 @@ export class RestaurantPageComponent implements OnInit {
     this.router.navigate([route]);
   }
 
+  public deleteRest(restName : string){
+    this.restaurantService.deleteRestaurant(restName).subscribe(
+      (response : any) => {
+        console.log(response);
+      }
+    )
+  }
+
   public getKeys(obj: any): string[]{
     return Object.keys(obj); //random order
   }

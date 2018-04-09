@@ -16,8 +16,12 @@ export class RestaurantService{
 
     }
 
-    public deleteRestaurant(key: string): Observable<any>{
-        return this.http.delete('http://localhost:8080/login' + 'chore/' + key + '.json')
+    public deleteRestaurant(restname: string): Observable<any>{
+        return this.http.post('http://localhost:8080/restaurant/delete', restname)
+    }
+
+    public addRestaurant(restaurant : Restaurant): Observable<any>{
+        return this.http.post('http://localhost:8080/restaurant/add', restaurant);
     }
 
 }

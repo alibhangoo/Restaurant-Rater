@@ -1,3 +1,17 @@
 .wrapper {
     text-align: center;
 }
+
+input {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    background: transparent;
+}
+label {
+    top: -24px;
+    left: 8px;
+    color: #ccc;
+    display: block;
+    position: relative;
+    z-index: -1;
+}
