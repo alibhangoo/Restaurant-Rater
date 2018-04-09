@@ -15,7 +15,8 @@ import { QueriesService } from '../../services/queries.service';
 export class RestaurantPageComponent implements OnInit {
   public restaurants: any;
   public restaurantKeys: string[];
-
+  public res : string;
+  public clicked: boolean= false;
   public selectedRes: string;
 
   public isRestaurant: boolean = true;
@@ -24,6 +25,9 @@ export class RestaurantPageComponent implements OnInit {
   public qA: any;
   public qAKeys: string[];
 
+  //QUERY D
+  public qD: any;
+  public qDKeys: string[];
 
   constructor(private router: Router, private restaurantService: RestaurantService, private queryService: QueriesService) { }
   
@@ -56,7 +60,24 @@ export class RestaurantPageComponent implements OnInit {
     return Object.keys(obj); //random order
   }
 
+  public onSubmitExpensive(form: NgForm):void{
+
+    this.restaurantService.queryD(form.value.idexpensive).subscribe(
+      (results: any) =>{
+        this.qD = results.result;
+        this.qDKeys = this.getKeys(this.qD);
+    
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    );
+    form.resetForm();
+
+  }
+
   public onSubmit(form: NgForm):void{
+
     this.queryService.queryA(form.value.id).subscribe(
       (loadedResult: any) =>{
         this.qA = loadedResult.result;
@@ -72,6 +93,26 @@ export class RestaurantPageComponent implements OnInit {
  
    }
 
+
+  public onSubmitDelete(form: NgForm):void{
+   
+    this.restaurantService.deleteRestaurant(this.restaurants[form.value.id].name).subscribe(
+      (response: any) =>{
+        this.clicked = true
+
+        if(response.status == 'success')
+          this.res = "Restaurant Deleted!"
+        else
+          this.res = "Restaurant doesn't exist!"
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    );
+
+    form.resetForm();
+ 
+   }
    public changView(wantedView : string){
       if(wantedView == "restaurant"){
         this.isRestaurant = true;

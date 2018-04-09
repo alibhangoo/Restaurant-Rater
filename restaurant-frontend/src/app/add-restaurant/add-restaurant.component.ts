@@ -40,7 +40,7 @@ export class AddRestaurantComponent implements OnInit {
       this.clicked = true
 
       if(response.status == 'success')
-        this.goToRoute("login")
+        this.goToRoute("restaurants")
       else
         this.res = "Username already taken!"
       

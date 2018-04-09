@@ -15,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
 import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { MenuItemServices } from '../services/menu-item.service';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { RatingServices } from '../services/ratings.service';
+import { AddRatingComponent } from './add-rating/add-rating.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
 import { AverageItemsComponent } from './average-items/average-items.component';
 import { NameDateXComponent } from './name-date-x/name-date-x.component';
@@ -28,10 +31,12 @@ import { NameDateXComponent } from './name-date-x/name-date-x.component';
     MenuPageComponent,
     RegisterComponent,
     AddMenuItemComponent,
-    AddRestaurantComponent,
     ByCategoryComponent,
     AverageItemsComponent,
-    NameDateXComponent
+    NameDateXComponent,
+    RatingsComponent,
+    AddRatingComponent,
+    AddRestaurantComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ import { NameDateXComponent } from './name-date-x/name-date-x.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RaterServices,RestaurantService, QueriesService, MenuItemServices],
+  providers: [RaterServices, RestaurantService, QueriesService, MenuItemServices, RatingServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

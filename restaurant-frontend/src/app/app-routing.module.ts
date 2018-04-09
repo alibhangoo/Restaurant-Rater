@@ -7,6 +7,8 @@ import { RestaurantPageComponent } from './restaurant-page/restaurant-page.compo
 import { RegisterComponent } from './register/register.component';
 import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { AddRatingComponent } from './add-rating/add-rating.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
 import { AverageItemsComponent } from './average-items/average-items.component';
 
@@ -21,7 +23,9 @@ const routes: Routes = [
     {path: 'addMenuItem', component: AddMenuItemComponent},
     {path: 'addrestaurant', component: AddRestaurantComponent},
     {path: 'byCategory', component: ByCategoryComponent},
-    {path: 'averageItems', component: AverageItemsComponent}
+    {path: 'averageItems', component: AverageItemsComponent},
+    {path: 'ratings', component: RatingsComponent},
+    {path: 'addrating', component: AddRatingComponent}
 ];
 
 @NgModule({

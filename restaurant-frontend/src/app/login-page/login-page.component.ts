@@ -28,26 +28,31 @@ export class LoginPageComponent implements OnInit {
     let login: Login = {
       username: form.value.username,
       password: form.value.password,
+      userId: form.value.userId
     };
   
 
-  this.raterServices.login(login).subscribe(
-    (response : any) => {
-      let rUsername : string = response.username;
-      localStorage.setItem('username', rUsername);
-      console.log(response.status);
-      if(response.status == 'success'){
-        this.goToRoute('home');
-      }else {
-        this.flag = true;
-        this.res = "Username or password incorrect."
+    this.raterServices.login(login).subscribe(
+      (response : any) => {
+        let rUsername : string = response.username;
+        console.log(response.username);
+        console.log(response.userID);
+
+        localStorage.setItem('username', rUsername);
+        localStorage.setItem('userID', response.userID);
+
+        console.log(response.status);
+        if(response.status == 'success'){
+          this.goToRoute('home');
+        }else {
+          this.flag = true;
+          this.res = "Username or password incorrect."
+        }
+      },
+      (err: any) => {
+        console.log(err);
       }
-    },
-    (err: any) => {
-      console.log(err);
-    }
-  )
+    )
 
   }
-
 }

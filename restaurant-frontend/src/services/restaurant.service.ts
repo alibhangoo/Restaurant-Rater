@@ -16,17 +16,16 @@ export class RestaurantService{
 
     }
 
-    public createRestaurant(restaurant: Restaurant):Observable<any>{
-        return this.http.post( 'http://localhost:8080/login' + 'chore.json', restaurant);
-
-    }
-
     public deleteRestaurant(restname: string): Observable<any>{
         return this.http.post('http://localhost:8080/restaurant/delete', restname)
     }
 
     public addRestaurant(restaurant : Restaurant): Observable<any>{
         return this.http.post('http://localhost:8080/restaurant/add', restaurant);
+    }
+
+    public queryD(id : string): Observable<any> {
+        return this.http.get('http://localhost:8080/expensiveItem?restaurant=' + id);
     }
 
 }

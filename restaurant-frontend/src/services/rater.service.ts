@@ -20,5 +20,9 @@ export class RaterServices {
     public delete(username: string): Observable<any> {
         return this.http.post('http://localhost:8080/user/delete', username)
     }
-    
+
+    public getRaters(): Observable<any>{
+        return this.http.get('http://localhost:8080/raters')
+
+    }    
 }
