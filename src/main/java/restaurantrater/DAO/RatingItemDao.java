@@ -9,4 +9,6 @@ import java.util.List;
 public interface RatingItemDao {
     public List<RatingItem> findAll();
         public List<RatingItem> findRatingItemsByMenuItemId(int ItemId);
+    public RatingItem insert(RatingItem ratingItem) ;
+
 }
