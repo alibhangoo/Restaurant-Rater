@@ -28,9 +28,9 @@ public class QueryImpl {
                 "WHERE (L.RestaurantID = R.RestaurantID) AND (M.RestaurantID = R.RestaurantID)  AND M.Price IN(\n" +
                 "\tSELECT DISTINCT MAX(M2.price)\n" +
                 "\tFROM MenuItem as M2, Restaurant as R2\n" +
-                "\tWHERE (M2.RestaurantID = R2.RestaurantID) AND (R2.name = 'Popeyes')) AND (R.name = ?);";
+                "\tWHERE (M2.RestaurantID = R2.RestaurantID) AND (R2.name = ?)) AND (R.name = ?);";
 
-        Object[] params = {restaurantName};
+        Object[] params = {restaurantName,restaurantName};
         List results = jdbcTemplate.queryForList(sql,params);
         return results;
     }
