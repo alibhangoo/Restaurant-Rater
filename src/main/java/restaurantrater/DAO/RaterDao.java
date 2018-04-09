@@ -12,4 +12,5 @@ public interface RaterDao {
     public boolean checkName(String username);
     public Rater delete(Rater rater);
     public int getHighestUserId();
-}
+    public Rater findByUserId(int id);
+    }
