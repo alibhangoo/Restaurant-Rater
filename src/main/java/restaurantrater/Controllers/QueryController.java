@@ -127,6 +127,41 @@ public class QueryController {
         return results;
     }
 
+    @RequestMapping(value = {"/totalRatings"}, method = RequestMethod.GET)
+    public List queryF(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        List results = queryImpl.queryF();
+
+        return results;
+    }
+
+    @RequestMapping(value = {"/notRatedJuly2015"}, method = RequestMethod.GET)
+    public List queryG(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        List results = queryImpl.queryG();
+
+        return results;
+    }
+
+    @RequestMapping(value = {"/queryh"}, method = RequestMethod.GET)
+    public Map<String, Object> queryH(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        if (allRequestParams.size() == 1 && allRequestParams.get("restaurant") != null && allRequestParams.get("restaurant").matches("[-+]?\\d*\\.?\\d+")) {
+            int id = Integer.parseInt(allRequestParams.get("restaurant"));
+            Restaurant restaurant = restaurantDao.findRestaurantById(id);
+
+            List result = queryImpl.mostExpensive(restaurant.getName());
+            map.put("result",result);
+            map.put("status","success");
+        }
+        else {
+            map.put("status", "error");
+            map.put("error","Invalid parameters");
+        }
+
+        return map;
+    }
+
 
 
 

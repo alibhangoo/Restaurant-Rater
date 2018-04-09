@@ -29,4 +29,11 @@ public class RatingItemDaoImpl implements RatingItemDao {
         List<RatingItem> ratingItems = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<RatingItem>(RatingItem.class));
         return ratingItems;
     }
+
+    public RatingItem insert(RatingItem ratingItem) {
+        String sql = "INSERT INTO RatingItem " + "VALUES (?,?,?,?,?)";
+        Object[] params = {ratingItem.getUserID(),ratingItem.getItemID(),ratingItem.getDate(),ratingItem.getRating(),ratingItem.getComment()};
+        jdbcTemplate.update(sql, params);
+        return ratingItem;
+    }
 }
