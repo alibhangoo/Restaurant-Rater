@@ -30,20 +30,32 @@ export class QueriesService {
         return this.http.get('http://localhost:8080/totalRatings');
     }
 
-<<<<<<< HEAD
     public queryG(): Observable<any> {
         return this.http.get('http://localhost:8080/notRatedJuly2015');
     }
-=======
     public queryE(): Observable<any>{
-        return this.http.get('http://localhost:8080/averagePrices')
+        return this.http.get('http://localhost:8080/averagePrices');
     }
 
     public queryH(userid: string): Observable<any>{
-        return this.http.get('http://localhost:8080/staffRatingLowerThan?user='+userid)
+        return this.http.get('http://localhost:8080/staffRatingLowerThan?user='+userid);
     }
 
+    public queryI(userid: string): Observable<any>{
+        return this.http.get('http://localhost:8080/highestFoodRating?type='+userid);
+    }
 
->>>>>>> 0543413d9bdb190865743b1a742f38d2d7fb1612
+    public queryK(): Observable<any>{
+        return this.http.get('http://localhost:8080/highestOverallRating1');
+    }
+
+    public queryL(): Observable<any>{
+        return this.http.get('http://localhost:8080/highestOverallRating2');
+    }
+
+    public queryN(): Observable<any>{
+        return this.http.get('http://localhost:8080/lowerThan?user=15');
+    }
+
 
 }

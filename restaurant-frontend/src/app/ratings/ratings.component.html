@@ -53,3 +53,64 @@
     <hr />
   </div>
 </div>
+
+<hr />
+
+
+<form (ngSubmit)="onSubmitQueryI(z)" #z="ngForm">
+    <option value="">Select Category</option>
+  <select type="text" name="category" ngModel>
+    <option *ngFor="let key of categoryKeys; let i = index" [value]="(categories[key]).type">{{(categories[key]).type}}</option>
+  </select>
+  <button type="submit">List the details of the Type Y restaurants that obtained the highest Food rating.</button>
+</form>
+
+<div *ngIf="qIKeys">
+    <div *ngFor="let key of qIKeys; let i = index">
+      <h3>Restaurant Name: {{qI[key].restaurantname}}</h3>
+      <p>Rater Name: {{qI[key].name}}</p>
+      <hr />
+    </div>
+  </div>
+
+  <hr />
+
+  <button class="button medium-btn" (click)="onSubmitQueryK()">Display the raters that give the highest overall rating, in terms of the Food and the Mood of restaurants</button>
+
+<div *ngIf="queryKArrKeys">
+  <div *ngFor="let key of queryKArrKeys; let i = index">
+    <h3>Name: {{(queryKArr[key]).name}}</h3>
+    <p>Join Date: {{(queryKArr[key]).join_date}}</p>
+    <p>Reputation: {{(queryKArr[key]).reputation}}</p>
+    <p>Restaurant Name: {{(queryKArr[key]).restaurantname}}</p>
+    <p>Rating Date: {{(queryKArr[key]).date}}</p>
+    <hr />
+  </div>
+</div>
+  
+<hr />
+
+<button class="button medium-btn" (click)="onSubmitQueryL()">Display the raters that give the highest overall rating, in terms of the Food OR the Mood of restaurants</button>
+
+<div *ngIf="queryLArrKeys">
+  <div *ngFor="let key of queryLArrKeys; let i = index">
+    <h3>Name: {{(queryLArr[key]).name}}</h3>
+    <p>Join Date: {{(queryLArr[key]).join_date}}</p>
+    <p>Reputation: {{(queryLArr[key]).reputation}}</p>
+    <p>Restaurant Name: {{(queryLArr[key]).restaurantname}}</p>
+    <p>Rating Date: {{(queryLArr[key]).date}}</p>
+    <hr />
+  </div>
+</div>
+
+<hr />
+
+<button class="button medium-btn" (click)="onSubmitQueryN()">Display all raters who gave ratings that are lower than John</button>
+
+<div *ngIf="queryNArrKeys">
+  <div *ngFor="let key of queryNArrKeys; let i = index">
+    <h3>Name: {{queryNArr[key].name}}</h3>
+    <p>Email: {{queryNArr[key].email}}</p>
+    <hr />
+  </div>
+</div>

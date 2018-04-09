@@ -29,11 +29,27 @@ export class RatingsComponent implements OnInit {
   public queryGArr: any;
   public queryGArrKeys: string[];
 
+  public categories: any;
+  public categoryKeys: string[];
+
+  public qI: any;
+  public qIKeys: string[];
+
+  public queryKArr: any;
+  public queryKArrKeys: string[];
+
+  public queryLArr: any;
+  public queryLArrKeys: string[];
+
+  public queryNArr: any;
+  public queryNArrKeys: string[];
+
   public userx = localStorage.getItem('username');
 
   constructor(private router: Router,private restaurantService: RestaurantService, private ratingService : RatingServices, private raterService : RaterServices, private queryService : QueriesService) { }
   //private ratingServices: RatingServices
   ngOnInit() {
+
     this.restaurantService.getRestaurants().subscribe(
       (loadedRestaurant: any) =>{
         this.restaurants = loadedRestaurant;
@@ -48,6 +64,18 @@ export class RatingsComponent implements OnInit {
       (loadedRaters : any) =>{
         this.raters = loadedRaters;
         this.raterKeys = this.getKeys(this.raters);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    );
+
+    this.restaurantService.getCategories().subscribe(
+      (loadedCategory: any) =>{
+        this.categories = loadedCategory;
+        console.log(this.categories);
+        this.categoryKeys = this.getKeys(this.categories);
+        console.log(this.categoryKeys);
       },
         (err:any) =>{
           console.log(err);
@@ -105,6 +133,62 @@ export class RatingsComponent implements OnInit {
         }
     ); 
    }
+
+   public onSubmitQueryI(form: NgForm):void{
+    console.log(form.value.category)
+    this.queryService.queryI(form.value.category).subscribe(
+      (loadedResult: any) =>{
+        this.qI = loadedResult.result;
+        this.qIKeys = this.getKeys(this.qI);
+    
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    );
+
+    form.resetForm();
+ 
+   }
+
+
+  public onSubmitQueryK():void{
+    this.queryService.queryK().subscribe(
+      (loadedResult: any) =>{
+        this.queryKArr = loadedResult;
+        this.queryKArrKeys = this.getKeys(this.queryKArr);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    ); 
+   }
+
+  public onSubmitQueryL():void{
+    this.queryService.queryL().subscribe(
+      (loadedResult: any) =>{
+        this.queryLArr = loadedResult;
+        this.queryLArrKeys = this.getKeys(this.queryLArr);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    ); 
+   }
+
+
+  public onSubmitQueryN():void{
+    this.queryService.queryN().subscribe(
+      (loadedResult: any) =>{
+        this.queryNArr = loadedResult.result;
+        this.queryNArrKeys = this.getKeys(this.queryNArr);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    ); 
+   }
+
 
 
 }
