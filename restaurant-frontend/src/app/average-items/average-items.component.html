@@ -1,0 +1,13 @@
+<h1 class = "text-center">Average Prices</h1>
+<button class="text-center" (click)="goToRoute('home')">Return Home</button>
+<button class="text-center" (click)="goToRoute('menus')">Go Back</button>
+<hr />
+
+<div *ngIf="qEKeys">
+    <div *ngFor="let key of qEKeys; let i = index">
+      <h3>Type: {{(qE[key]).type}}</h3>
+      <p>Category: {{(qE[key].category)}}</p>
+      <p>Average Price: ${{(qE[key].avgpricecat)}}</p>
+      <hr />
+    </div>
+  </div>

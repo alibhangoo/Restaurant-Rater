@@ -400,7 +400,7 @@ WHERE  R.restaurantid = L.restaurantid AND Rating.restaurantid = R.restaurantid 
 	--(SELECT MAX(Xratings.price) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
 	(SELECT MAX(Xratings.food) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
 	OR rating.staff < (SELECT MAX(Xratings.staff) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )
-	OR rating.staff <	(SELECT MAX(Xratings.mood) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 ))
+	OR rating.staff <	(SELECT MAX(Xratings.mood) FROM Rater AS X ,Rating as Xratings WHERE Xratings.userid = X.userid AND X.userid = 14 )ORDER BY L.first_open_date)
 
 
 --i
