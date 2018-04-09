@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+    font-family:  sans-serif !important; 
+    /*Add the !important to overwrite all elements*/
+  }
+
+body {
+    background: #ffffff;
+}
+h1.sansserif {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p.sansserif {
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,7 +1,9 @@
-<h1>Register Page</h1>
+<div class="wrapper">
+    <h1 class="sansserif">Register Page</h1>
+</div>
 <hr />
 
-<div>
+<div class="wrapper">
   <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
     <div class="div">
       <label>Email</label>
@@ -28,8 +30,8 @@
       <input type="password" name="password" ngModel />
     </div>    
 
-    <button type="submit">Submit</button>
-    <button (click)="goToRoute('login')">Return To Login</button>
+    <button type="submit"  mat-raised-button color="primary">Submit</button>
+    <button (click)="goToRoute('login')"  mat-raised-button color="primary">Return To Login</button>
   </form>
 
 </div>

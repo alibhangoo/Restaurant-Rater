@@ -1,13 +1,14 @@
 <h1 class = "text-center">Select Name and Dates By Rater</h1>
-<button class="text-center" (click)="goToRoute('home')">Return Home</button>
-<button class="text-center" (click)="goToRoute('restaurants')">Go Back</button>
+<button class="text-center" (click)="goToRoute('home')" mat-raised-button color="primary">Return Home</button>
+<button class="text-center" (click)="goToRoute('restaurants')" mat-raised-button color="primary">Go Back</button>
+<hr />
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <option value="">Select Rater</option>
   <select type="text" name="id" ngModel>
     <option *ngFor="let key of raterKeys; let i = index" [value]="key">{{raters[key].name}}</option>
   </select>
-  <button type="submit">Submit</button>
+  <button type="submit" mat-raised-button color="primary">Submit</button>
 </form>
 
 <div *ngIf="qHKeys">

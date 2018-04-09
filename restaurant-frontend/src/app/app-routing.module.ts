@@ -15,7 +15,7 @@ import { NameDateXComponent } from './name-date-x/name-date-x.component';
 
 
 const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'home', component: HomePageComponent},
     {path: 'login', component: LoginPageComponent},
     {path: 'menus', component: MenuPageComponent},

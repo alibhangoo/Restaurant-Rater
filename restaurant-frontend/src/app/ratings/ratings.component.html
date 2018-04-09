@@ -1,6 +1,6 @@
 <h1 class = "text-center">Ratings</h1>
-<button class="text-center" (click)="goToRoute('home')">Return Home</button>
-<button class="text-center" (click)="goToRoute('addrating')">Add Rating</button>
+<button class="text-center" (click)="goToRoute('home')" mat-raised-button color="primary">Return Home</button>
+<button class="text-center" (click)="goToRoute('addrating')" mat-raised-button color="primary">Add Rating</button>
 <hr />
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -8,7 +8,7 @@
   <select type="text" name="id" ngModel>
     <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
   </select>
-  <button type="submit">Submit</button>
+  <button type="submit" mat-raised-button color="primary">Submit</button>
 </form>
 
 <div *ngIf="ratingKeys">
@@ -27,7 +27,7 @@
 
   <hr />
 
-<button class="button medium-btn" (click)="onSubmitQueryF()">Display the total number of rating for each restaurant, for each rater</button>
+<button class="button medium-btn" (click)="onSubmitQueryF()" mat-raised-button color="primary">Display the total number of rating for each restaurant, for each rater</button>
 
 <div *ngIf="queryFArrKeys">
     <div *ngFor="let key of queryFArrKeys; let i = index">
@@ -43,7 +43,7 @@
 
 <hr />
 
-<button class="button medium-btn" (click)="onSubmitQueryG()">Display the details of the restaurants that have not been rated in January 2015!</button>
+<button class="button medium-btn" (click)="onSubmitQueryG()" mat-raised-button color="primary">Display the details of the restaurants that have not been rated in January 2015!</button>
 
 <div *ngIf="queryGArrKeys">
   <div *ngFor="let key of queryGArrKeys; let i = index">
@@ -62,7 +62,7 @@
   <select type="text" name="category" ngModel>
     <option *ngFor="let key of categoryKeys; let i = index" [value]="(categories[key]).type">{{(categories[key]).type}}</option>
   </select>
-  <button type="submit">List the details of the Type Y restaurants that obtained the highest Food rating.</button>
+  <button type="submit" mat-raised-button color="primary">List the details of the Type Y restaurants that obtained the highest Food rating.</button>
 </form>
 
 <div *ngIf="qIKeys">
@@ -75,7 +75,7 @@
 
   <hr />
 
-  <button class="button medium-btn" (click)="onSubmitQueryK()">Display the raters that give the highest overall rating, in terms of the Food and the Mood of restaurants</button>
+  <button class="button medium-btn" (click)="onSubmitQueryK()" mat-raised-button color="primary">Display the raters that give the highest overall rating, in terms of the Food and the Mood of restaurants</button>
 
 <div *ngIf="queryKArrKeys">
   <div *ngFor="let key of queryKArrKeys; let i = index">
@@ -90,7 +90,7 @@
   
 <hr />
 
-<button class="button medium-btn" (click)="onSubmitQueryL()">Display the raters that give the highest overall rating, in terms of the Food OR the Mood of restaurants</button>
+<button class="button medium-btn" (click)="onSubmitQueryL()" mat-raised-button color="primary">Display the raters that give the highest overall rating, in terms of the Food OR the Mood of restaurants</button>
 
 <div *ngIf="queryLArrKeys">
   <div *ngFor="let key of queryLArrKeys; let i = index">
@@ -105,7 +105,7 @@
 
 <hr />
 
-<button class="button medium-btn" (click)="onSubmitQueryN()">Display all raters who gave ratings that are lower than John</button>
+<button class="button medium-btn" (click)="onSubmitQueryN()" mat-raised-button color="primary">Display all raters who gave ratings that are lower than John</button>
 
 <div *ngIf="queryNArrKeys">
   <div *ngFor="let key of queryNArrKeys; let i = index">
@@ -121,7 +121,7 @@
   <select type="text" name="id" ngModel>
     <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
   </select>
-  <button type="submit">Select Restaurant To View Most Frequent Raters</button>
+  <button type="submit" mat-raised-button color="primary">Select Restaurant To View Most Frequent Raters</button>
 </form>
 
 <div *ngIf="qMKeys">
@@ -137,7 +137,7 @@
 
 <hr />
 
-<button class="button medium-btn" (click)="onSubmitQueryO()">Find The Rater With Most Diverse Ratings</button>
+<button class="button medium-btn" (click)="onSubmitQueryO()" mat-raised-button color="primary">Find The Rater With Most Diverse Ratings</button>
 
 <div *ngIf="qOKeys">
   <div *ngFor="let key of qOKeys; let i = index">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { RaterServices } from '../../services/rater.service';
 
@@ -16,6 +16,8 @@ export class HomePageComponent implements OnInit {
   
   ngOnInit() {
   }
+
+
 
   public goToRoute(route: string){
     this.router.navigate([route]);

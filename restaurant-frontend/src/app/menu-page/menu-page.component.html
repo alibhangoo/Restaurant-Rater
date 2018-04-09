@@ -1,16 +1,16 @@
 <h1 class = "text-center">Menus</h1>
-<button class="text-center" (click)="goToRoute('home')">Home</button>
-<button class="text-center" (click)="goToRoute('addMenuItem')">Add Menu Item</button>
-<button class="text-center" (click)="goToRoute('averageItems')">Average Menu Prices</button>
+<button class="text-center" (click)="goToRoute('home')" mat-raised-button color="primary">Home</button>
+<button class="text-center" (click)="goToRoute('addMenuItem')" mat-raised-button color="primary">Add Menu Item</button>
+<button class="text-center" (click)="goToRoute('averageItems')" mat-raised-button color="primary">Average Menu Prices</button>
 
-
+<hr />
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <option value="">Select Restaurant</option>
       <select type="text" name="id" ngModel>
         <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
       </select>
-      <button type="submit">Submit</button>
+      <button type="submit" mat-raised-button color="primary">Submit</button>
  </form>
 
 
@@ -21,7 +21,7 @@
           <p>Category: {{menuItems[key].category}}</p>
           <p>Description: {{menuItems[key].description}}</p>
           <p>Price: ${{menuItems[key].price}}</p>
-          <button (click)="deleteMenuItem(menuItems[key].name, key, i)">Delete Item</button>
+          <button (click)="deleteMenuItem(menuItems[key].name, key, i)" mat-raised-button color="primary">Delete Item</button>
           <hr />
         </div>
 </div>

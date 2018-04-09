@@ -1,9 +1,12 @@
-<div class="wrapper">
-  <h1 class = "text-center">Restaurant Rater</h1>
-  <button (click)="goToRoute('menus')">Menu</button>
-  <button (click)="goToRoute('restaurants')">Restaurants</button>
-  <button (click)="goToRoute('ratings')">Ratings</button>
-  <button (click)="logout('login')">Logout</button>
-  <button (click)="onDelete(user)">Delete Account</button>
-</div>
-
+  <div class="wrapper">
+    <h1 class="text-center" class="sansserif">Restaurant Rater</h1>
+    <div class="wrapper">
+        <img src="assets\spongebob-krabby-patty2.jpg" class="wrapper" height="250" width="500">
+    </div>
+   
+    <button (click)="goToRoute('menus')" mat-raised-button color="primary">Menu</button>
+    <button (click)="goToRoute('restaurants')" mat-raised-button color="primary">Restaurants</button>
+    <button (click)="goToRoute('ratings')" mat-raised-button color="primary">Ratings</button>
+    <button (click)="logout('login')" mat-raised-button color="primary">Logout</button>
+    <button (click)="onDelete(user)" mat-raised-button color="primary">Delete Account</button>
+  </div>

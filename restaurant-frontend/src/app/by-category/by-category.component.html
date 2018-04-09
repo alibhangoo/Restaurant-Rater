@@ -1,6 +1,6 @@
 <h1 class = "text-center">Search By Category</h1>
-<button class="text-center" (click)="goToRoute('home')">Return Home</button>
-<button class="text-center" (click)="goToRoute('restaurants')">Go Back</button>
+<button class="text-center" (click)="goToRoute('home')" mat-raised-button color="primary">Return Home</button>
+<button class="text-center" (click)="goToRoute('restaurants')" mat-raised-button color="primary">Go Back</button>
 <hr />
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -8,7 +8,7 @@
   <select type="text" name="category" ngModel>
     <option *ngFor="let key of categoryKeys; let i = index" [value]="(categories[key]).type">{{(categories[key]).type}}</option>
   </select>
-  <button type="submit">Submit</button>
+  <button type="submit" mat-raised-button color="primary">Submit</button>
 </form>
 
 <h3 *ngIf="qJKeys">Popular than others: {{morePopular}}</h3>

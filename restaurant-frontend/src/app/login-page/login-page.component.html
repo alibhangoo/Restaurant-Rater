@@ -1,20 +1,22 @@
-<h1>Login Page</h1>
+<div class="wrapper">
+    <h1 class="sansserif">Login Page</h1>
+</div>
 <hr />
 
 <div class="wrapper">
   <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
     <div>
-      <label>Username</label>
+      <label class="sansserif">Username</label>
       <input type="text" name="username" ngModel />
     </div>
   
     <div>
-      <label>Password</label>
+      <label class="sansserif">Password</label>
       <input type="password" name="password" ngModel />
     </div>
     
-    <button type="submit">Submit</button>
-    <button (click)="goToRoute('register')">Register</button>
+    <button type="submit" mat-raised-button color="primary">Submit </button>
+    <button (click)="goToRoute('register')" mat-raised-button color="primary">Register</button>
   </form>
 </div>
 
