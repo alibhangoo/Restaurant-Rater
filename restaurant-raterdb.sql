@@ -454,20 +454,23 @@ WHERE RT.UserId IN (SELECT RG1.UserId FROM Rater AS RG1
 		
 --m
 
-SELECT RT.name, RT.reputation, RG.comments
-FROM Rating AS RG, Rater AS RT
+SELECT DISTINCT RT.name, RT.reputation,RG.comments, MenuItem.name, MenuItem.price 
+FROM Rating AS RG, Rater AS RT, RatingItem, MenuItem
 WHERE 
 	RT.userId IN (SELECT RT1.userId 
 				FROM Rater AS RT1 
 				WHERE
 		(SELECT COUNT(*) FROM Rating AS RG1 WHERE RG1.userId = RT1.userId AND
-			RG1.restaurantId IN (SELECT R.restaurantId 
+			RatingItem.userid = RT.userid 
+			AND RatingItem.itemid = menuitem.itemid
+			AND RG1.restaurantid = menuitem.restaurantid
+			AND RG1.restaurantId IN (SELECT R.restaurantId 
 								FROM Restaurant AS R 
-								WHERE R.name ='Popeyes')) >=  All(SELECT COUNT(*) FROM Rating AS RG2 WHERE 
+								WHERE R.name ='McDonald''s')) >=  All(SELECT COUNT(*) FROM Rating AS RG2 WHERE 
 			RG2.restaurantId IN (SELECT R.restaurantId FROM Restaurant AS R WHERE
-				R.name ='Popeyes') GROUP BY RG2.userId))
+				R.name ='McDonald''s') GROUP BY RG2.userId))
 	AND RG.userId = RT.userId AND RG.restaurantId IN (SELECT R.restaurantId FROM Restaurant AS R WHERE
-				R.name ='Popeyes') 
+				R.name ='McDonald''s');
 				
 --Z = mcdonalds
 SELECT DISTINCT Rater.name, Rater.reputation, Rating.comments, RatingItem.comment, MenuItem.name, MenuItem.price
