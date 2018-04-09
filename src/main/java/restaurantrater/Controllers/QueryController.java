@@ -248,5 +248,14 @@ public class QueryController {
         return map;
     }
 
+    @RequestMapping(value = {"/diverseRatings"}, method = RequestMethod.GET)
+    public List queryO(@RequestParam Map<String,String> allRequestParams) {
+        HashMap<String, Object> map = new HashMap<>();
+        List results = queryImpl.queryO();
+
+        return results;
+    }
+
+
 
 }

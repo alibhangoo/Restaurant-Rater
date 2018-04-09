@@ -196,4 +196,17 @@ public class QueryImpl {
         return results;
     }
 
+
+    public List queryO() {
+        String sql = "SELECT Rater.name, Rater.type, Rater.email, Restaurant.name as restaurantName, Rating.price, Rating.food, Rating.mood\n" +
+                "FROM Rater, Restaurant, Rating WHERE Rater.userid = Rating.userid AND Rating.restaurantid = Restaurant.restaurantid AND Rater.userid IN(\n" +
+                "SELECT rater.userid\n" +
+                "FROM Rater, Rating\n" +
+                "WHERE Rater.userid = Rating.userid\n" +
+                "GROUP BY Rater.userid HAVING stddev((Rating.price + Rating.food + Rating.mood + Rating.staff)/4) > 0.7);";
+
+        List results = jdbcTemplate.queryForList(sql);
+        return results;
+    }
+
 }
