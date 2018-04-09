@@ -57,6 +57,10 @@ export class QueriesService {
         return this.http.get('http://localhost:8080/highestOverallRating2');
     }
 
+    public queryM(restaurantid: string): Observable<any>{
+        return this.http.get('http://localhost:8080/mostFrequent?restaurant='+restaurantid);
+    }
+
     public queryN(): Observable<any>{
         return this.http.get('http://localhost:8080/lowerThan?user=15');
     }

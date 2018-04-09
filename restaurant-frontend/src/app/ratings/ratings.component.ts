@@ -41,6 +41,9 @@ export class RatingsComponent implements OnInit {
   public queryLArr: any;
   public queryLArrKeys: string[];
 
+  public qM: any;
+  public qMKeys: string[];
+
   public queryNArr: any;
   public queryNArrKeys: string[];
 
@@ -182,6 +185,18 @@ export class RatingsComponent implements OnInit {
       (loadedResult: any) =>{
         this.queryNArr = loadedResult.result;
         this.queryNArrKeys = this.getKeys(this.queryNArr);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    ); 
+   }
+
+   public onSubmitQueryM(form: NgForm):void{
+    this.queryService.queryM(form.value.id).subscribe(
+      (loadedResult: any) =>{
+        this.qM = loadedResult.result;
+        this.qMKeys = this.getKeys(this.qM);
       },
         (err:any) =>{
           console.log(err);

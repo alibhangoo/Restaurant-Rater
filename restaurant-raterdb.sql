@@ -492,4 +492,12 @@ SELECT (Rating.price + Rating.food + Rating.mood + Rating.staff) AS JohnRatings
 FROM Rating, Rater 
 WHERE Rating.userid = Rater.userid AND Rater.name = 'John');
 
+--o
+SELECT Rater.name, Rater.type, Rater.email, Restaurant.name, Rating.price, Rating.food, Rating.mood, Rating.price
+FROM Rater, Restaurant, Rating WHERE Rater.userid = Rating.userid AND Rating.restaurantid = Restaurant.restaurantid AND Rater.userid IN(
+SELECT rater.userid
+FROM Rater, Rating
+WHERE Rater.userid = Rating.userid
+GROUP BY Rater.userid HAVING stddev((Rating.price + Rating.food + Rating.mood + Rating.staff)/4) > 0.7);
+
 

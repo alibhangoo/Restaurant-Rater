@@ -114,3 +114,24 @@
     <hr />
   </div>
 </div>
+
+
+<form (ngSubmit)="onSubmitQueryM(a)" #a="ngForm">
+    <label value="">Select Restaurant To View Most Frequent Raters</label>
+  <select type="text" name="id" ngModel>
+    <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+<div *ngIf="qMKeys">
+  <div *ngFor="let key of qMKeys; let i = index">
+    <h3>Rater Name: {{qM[key].name}}</h3>
+    <p>Reputation: {{qM[key].reputation}}</p>
+    <p>Comments: {{qM[key].comments}}</p>
+    <p>Menu Item Name: {{qM[key].menuitemname}}</p>
+    <p>Menu Price: {{qM[key].price}}</p>
+    <hr />
+  </div>
+</div>
+
