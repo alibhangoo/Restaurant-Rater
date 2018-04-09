@@ -1,0 +1,38 @@
+<h1>Register Page</h1>
+<hr />
+
+<div>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+    <div class="div">
+      <label>Email</label>
+      <input type="text" name="email" ngModel />
+    </div>
+
+    <div class="div">
+      <label>Name</label>
+      <input type="text" name="name" ngModel />
+    </div>
+
+    <div class="div">
+      <label>Join Date</label>
+      <input type="text" name="joinDate" ngModel />
+    </div>
+    
+    <div class="div">
+      <label>Type</label>
+      <input type="text" name="type" ngModel />
+    </div>  
+    
+    <div class="div">
+      <label>Password</label>
+      <input type="password" name="password" ngModel />
+    </div>    
+
+    <button type="submit">Submit</button>
+    <button (click)="goToRoute('login')">Return To Login</button>
+  </form>
+
+
+</div>
+
+

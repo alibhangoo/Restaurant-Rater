@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Login } from '../../models/login.model';
-import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { RaterServices } from '../../services/rater.service';
-
+import { Register } from '../../models/register.model';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   constructor(private router: Router, private raterServices: RaterServices) { }
 
@@ -23,18 +21,20 @@ export class LoginPageComponent implements OnInit {
   }
 
   public onSubmit(form: NgForm): void{
-    let login: Login = {
-      username: form.value.username,
+    let register: Register = {
+      email: form.value.email,
+      name: form.value.name,
+      joinDate: form.value.joinDate,
+      type: form.value.type,
       password: form.value.password,
+      reputation: 1,
+      userID: "",
     };
   
 
-  this.raterServices.login(login).subscribe(
+  this.raterServices.register(register).subscribe(
     (response : any) => {
-      let rUsername : string = response.username;
-      localStorage.setItem('username', rUsername);
-      let user = (localStorage.getItem('username'));
-      console.log(user)
+      console.log(response)
     },
     (err: any) => {
       console.log(err);

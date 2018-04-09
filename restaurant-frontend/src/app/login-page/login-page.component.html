@@ -1,15 +1,21 @@
 <h1>Login Page</h1>
 <hr />
 
-<div>
-  <form > 
-    <label>Username</label>
-    <input type="text" name="username" [(ngModel)]="login.username" />
-
-    <label>Password</label>
-    <input type="password" name="password" [(ngModel)]="login.password"/>
-
-    <button type="submit" [style.color]="color" (click)="submit()">Submit</button>
-
+<div class="wrapper">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+    <div>
+      <label>Username</label>
+      <input type="text" name="username" ngModel />
+    </div>
+  
+    <div>
+      <label>Password</label>
+      <input type="password" name="password" ngModel />
+    </div>
+    
+    <button type="submit">Submit</button>
+    <button (click)="goToRoute('register')">Register</button>
   </form>
 </div>
+
+
