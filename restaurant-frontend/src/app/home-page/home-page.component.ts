@@ -21,6 +21,11 @@ export class HomePageComponent implements OnInit {
     this.router.navigate([route]);
   }
 
+  public logout(route: string){
+    localStorage.setItem('username', undefined);
+    this.router.navigate([route]);
+  }
+
   public onDelete(user): void{
  
   this.raterServices.delete(user).subscribe(

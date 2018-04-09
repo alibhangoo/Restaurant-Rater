@@ -46,5 +46,39 @@ public class QueryImpl {
         return results;
     }
 
+    public List queryF() {
+        String sql = "SELECT R.name as restaurantName ,Rater.name, Rating.price, Rating.food, Rating.mood, Rating.staff\n" +
+                "FROM Restaurant AS R, Rater, Rating \n" +
+                "WHERE (Rater.userid = Rating.userid and Rating.restaurantid = R.restaurantid)\n" +
+                "GROUP BY R.name ,Rater.userId, Rating.price, Rating.food, Rating.mood, Rating.staff ORDER BY R.name, Rater.name;";
+
+        List results = jdbcTemplate.queryForList(sql);
+        return results;
+    }
+
+    public List queryG() {
+        String sql = "SELECT DISTINCT R.name, L.phone_number, R.type \n" +
+                "FROM Restaurant AS R, Location AS L, Rating \n" +
+                "WHERE R.restaurantid = L.restaurantid AND\n" +
+                "\tNOT EXISTS (SELECT Ratings.date \n" +
+                "\t\t\t\tFROM Rating AS Ratings \n" +
+                "\t\t\t\tWHERE date_part('year', rating.date) =2015 AND date_part('month', rating.date) = 01);";
+
+        List results = jdbcTemplate.queryForList(sql);
+        return results;
+    }
+
+    public List queryH() {
+        String sql = "SELECT DISTINCT R.name, L.phone_number, R.type \n" +
+                "FROM Restaurant AS R, Location AS L, Rating \n" +
+                "WHERE R.restaurantid = L.restaurantid AND\n" +
+                "\tNOT EXISTS (SELECT Ratings.date \n" +
+                "\t\t\t\tFROM Rating AS Ratings \n" +
+                "\t\t\t\tWHERE date_part('year', rating.date) =2015 AND date_part('month', rating.date) = 01);";
+
+        List results = jdbcTemplate.queryForList(sql);
+        return results;
+    }
+
 
 }

@@ -37,9 +37,9 @@ public class MenuItemDaoImpl implements MenuItemDao {
         return menuItem;
     }
 
-    public List<MenuItem> findMenuItemsByRestaurantId(int MenuItemId){
-        String sql = "SELECT * FROM MenuItem WHERE MenuItemID = ?";
-        Object[] params = {MenuItemId};
+    public List<MenuItem> findMenuItemsByRestaurantId(int RestaurantId){
+        String sql = "SELECT * FROM MenuItem WHERE RestaurantID = ?";
+        Object[] params = {RestaurantId};
         List<MenuItem> menuItems = jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<MenuItem>(MenuItem.class));
         return menuItems;
     }

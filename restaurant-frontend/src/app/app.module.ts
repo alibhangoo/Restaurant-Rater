@@ -14,6 +14,7 @@ import { QueriesService } from "../services/queries.service";
 import { RegisterComponent } from './register/register.component';
 import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { MenuItemServices } from '../services/menu-item.service';
+import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MenuItemServices } from '../services/menu-item.service';
     RestaurantPageComponent,
     MenuPageComponent,
     RegisterComponent,
-    AddMenuItemComponent
+    AddMenuItemComponent,
+    AddRestaurantComponent
   ],
   imports: [
     BrowserModule,

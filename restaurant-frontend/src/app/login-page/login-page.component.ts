@@ -13,6 +13,7 @@ import { RaterServices } from '../../services/rater.service';
 })
 export class LoginPageComponent implements OnInit {
   public res : string;
+  public flag : boolean = false;
 
   constructor(private router: Router, private raterServices: RaterServices) { }
 
@@ -37,6 +38,9 @@ export class LoginPageComponent implements OnInit {
       console.log(response.status);
       if(response.status == 'success'){
         this.goToRoute('home');
+      }else {
+        this.flag = true;
+        this.res = "Username or password incorrect."
       }
     },
     (err: any) => {

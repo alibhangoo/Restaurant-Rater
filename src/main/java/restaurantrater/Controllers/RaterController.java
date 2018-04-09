@@ -43,8 +43,10 @@ public class RaterController {
             map.put("error","Password invalid");
         }
         else {
+            Rater rater = raterDao.findByName(username);
             map.put("status", "success");
             map.put("username", username);
+            map.put("userID", Integer.toString(rater.getUserID()));
         }
 
         return map;

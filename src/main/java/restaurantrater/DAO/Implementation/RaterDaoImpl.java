@@ -60,4 +60,5 @@ public class RaterDaoImpl implements RaterDao {
         String sql = "SELECT MAX(UserID) FROM Rater";
         return jdbcTemplate.queryForObject(sql, Integer.class);
     }
+
 }

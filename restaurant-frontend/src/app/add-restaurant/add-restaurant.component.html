@@ -1,0 +1,27 @@
+<h1>Register Page</h1>
+<hr />
+
+<div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+      <div class="div">
+        <label>Name</label>
+        <input type="text" name="name" ngModel />
+      </div>
+  
+      <div class="div">
+        <label>Type</label>
+        <input type="text" name="type" ngModel />
+      </div>
+  
+      <div class="div">
+        <label>URL</label>
+        <input type="text" name="url" ngModel />
+      </div>
+
+      <button type="submit">Submit</button>
+      <button (click)="goToRoute('restaurants')">Return To Restaurants</button>
+    </form>
+  
+  </div>
+
+<p *ngIf="clicked"> {{res}} </p>
