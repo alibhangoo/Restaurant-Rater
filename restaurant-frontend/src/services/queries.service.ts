@@ -65,5 +65,9 @@ export class QueriesService {
         return this.http.get('http://localhost:8080/lowerThan?user=15');
     }
 
+    public queryO(): Observable<any>{
+        return this.http.get('http://localhost:8080/diverseRatings');
+    }
+
 
 }

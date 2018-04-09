@@ -47,6 +47,9 @@ export class RatingsComponent implements OnInit {
   public queryNArr: any;
   public queryNArrKeys: string[];
 
+  public qO: any;
+  public qOKeys: string[];
+
   public userx = localStorage.getItem('username');
 
   constructor(private router: Router,private restaurantService: RestaurantService, private ratingService : RatingServices, private raterService : RaterServices, private queryService : QueriesService) { }
@@ -205,5 +208,15 @@ export class RatingsComponent implements OnInit {
    }
 
 
-
+   public onSubmitQueryO():void{
+    this.queryService.queryO().subscribe(
+      (loadedResult: any) =>{
+        this.qO = loadedResult;
+        this.qOKeys = this.getKeys(this.qO);
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    ); 
+   }
 }
