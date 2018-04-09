@@ -15,6 +15,11 @@ import { RegisterComponent } from './register/register.component';
 import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { MenuItemServices } from '../services/menu-item.service';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { RatingServices } from '../services/ratings.service';
+import { AddRatingComponent } from './add-rating/add-rating.component';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +30,9 @@ import { AddRestaurantComponent } from './add-restaurant/add-restaurant.componen
     MenuPageComponent,
     RegisterComponent,
     AddMenuItemComponent,
-    AddRestaurantComponent
+    AddRestaurantComponent,
+    RatingsComponent,
+    AddRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,7 @@ import { AddRestaurantComponent } from './add-restaurant/add-restaurant.componen
     FormsModule,
     HttpClientModule
   ],
-  providers: [RaterServices,RestaurantService, QueriesService, MenuItemServices],
+  providers: [RaterServices, RestaurantService, QueriesService, MenuItemServices, RatingServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

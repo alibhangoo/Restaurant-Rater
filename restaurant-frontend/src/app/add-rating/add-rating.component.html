@@ -1,0 +1,53 @@
+<h1>Add Rating</h1>
+<hr />
+
+
+
+<div>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
+        <label>Restaurant</label>
+        <select type="text" name="restaurantid" ngModel>
+        <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
+      </select>
+
+    <div class="div">
+      <label>Date</label>
+      <input type="text" name="date" ngModel />
+    </div>
+
+    <div class="div">
+      <label>Price</label>
+      <input type="number" name="price" ngModel />
+    </div>
+
+    <div class="div">
+      <label>Food</label>
+      <input type="number" name="food" ngModel />
+    </div>
+
+
+    <div class="div">
+        <label>Mood</label>
+        <input type="number" name="mood" ngModel />
+      </div>
+
+
+    <div class="div">
+        <label>Staff</label>
+        <input type="number" name="staff" ngModel />
+      </div>
+
+
+    <div class="div">
+        <label>Comments</label>
+        <input type="text" name="comments" ngModel />
+      </div>
+      
+      <button type="submit">Submit</button>
+      <button (click)="goToRoute('ratings')">Return To View Ratings</button>
+    </form>
+  
+  </div>
+
+
+<p *ngIf="clicked"> {{res}} </p>

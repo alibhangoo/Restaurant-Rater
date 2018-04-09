@@ -8,16 +8,16 @@
 
 <!-- (change) ="method($event.target.value)" -->
 <div>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm"> 
-      <div>
-        <section>
-            <input type="text" name="restaurantName" />
-            <label for="demo">Restaurant Name</label>
-          </section>
-      </div>
-      <button class="text-center" (click)="deleteRest()">Delete Selected Restaurant</button>
+    <form (ngSubmit)="onSubmitDelete(g)" #g="ngForm">
+        <option value="">Select Restaurant To Be Deleted</option>
+        <select type="text" name="id" ngModel>
+            <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
+        </select>
+      <button type="submit">Delete Selected Restaurant</button>
     </form>
-  </div>
+</div>
+
+  <p *ngIf="clicked"> {{res}} </p>
 
 <hr />
 
@@ -38,11 +38,34 @@
       <p>Location ID: {{qA[key].locationid}}</p>
       <p>First Opened: {{qA[key].first_open_date}}</p>
       <p>Manager Name: {{qA[key].manager_name}}</p>
-      <p>Location Number: {{qA[key].phone_number}}</p>
+      <p>Phone Number: {{qA[key].phone_number}}</p>
       <p>Address: {{qA[key].street_address}}</p>
-      <p>OPEN FROM: {{qA[key].hour_open}}-{{qA[key].hour_close}}</p>
+      <p>Open Hours: {{qA[key].hour_open}}-{{qA[key].hour_close}}</p>
       <hr />
     </div>
   </div>
+
+  <hr />
+
+<form (ngSubmit)="onSubmitExpensive(g)" #g="ngForm">
+    <option value="">Find Most Expensive Item</option>
+  <select type="text" name="idexpensive" ngModel>
+    <option *ngFor="let qkey of restaurantKeys; let i = index" [value]="qkey">{{restaurants[qkey].name}}</option>
+  </select>
+  <button type="submit">Find Most Expensive</button>
+</form>
+ 
+<div *ngIf="qDKeys">
+    <div *ngFor="let qkey of qDKeys; let i = index">
+      <h1>Name: {{qD[qkey].name}}</h1>
+      <p>Most Expensive Item: {{qD[qkey].name}}</p>
+      <p>Manager Name: {{qD[qkey].manager_name}}</p>
+      <p>Open Hours: {{qD[qkey].hour_open}}</p>
+      <p>URL: {{qD[qkey].url}}</p>
+      <hr />
+    </div>
+  </div> 
+
+
 
   

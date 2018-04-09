@@ -1,0 +1,26 @@
+<h1 class = "text-center">Restaurants</h1>
+<button class="text-center" (click)="goToRoute('home')">Return Home</button>
+<button class="text-center" (click)="goToRoute('addrating')">Add Rating</button>
+<hr />
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <option value="">Select Restaurant To View Ratings</option>
+  <select type="text" name="id" ngModel>
+    <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+<div *ngIf="ratingKeys">
+    <div *ngFor="let key of ratingKeys; let i = index">
+      <p>Name: {{raters[ratings[key].userID].name}}</p>
+      <p>Date: {{ratings[key].date}}</p>
+      <p>Price Rating: {{ratings[key].price}}</p>
+      <p>Staff Rating: {{ratings[key].staff}}</p>
+      <p>Mood Rating: {{ratings[key].mood}}</p>
+      <p>Food Rating: {{ratings[key].food}}</p>
+      <p>Restaurant ID: {{ratings[key].restaurantID}}</p>
+      <p>Comments: {{ratings[key].comments}}</p>
+      <hr />
+    </div>
+  </div>
