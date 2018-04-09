@@ -11,6 +11,7 @@ import { RatingsComponent } from './ratings/ratings.component';
 import { AddRatingComponent } from './add-rating/add-rating.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
 import { AverageItemsComponent } from './average-items/average-items.component';
+import { NameDateXComponent } from './name-date-x/name-date-x.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
     {path: 'byCategory', component: ByCategoryComponent},
     {path: 'averageItems', component: AverageItemsComponent},
     {path: 'ratings', component: RatingsComponent},
-    {path: 'addrating', component: AddRatingComponent}
+    {path: 'addrating', component: AddRatingComponent},
+    {path: 'nameDateX', component: NameDateXComponent}
 ];
 
 @NgModule({

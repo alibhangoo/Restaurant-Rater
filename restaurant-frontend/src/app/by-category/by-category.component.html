@@ -11,9 +11,11 @@
   <button type="submit">Submit</button>
 </form>
 
+<h3 *ngIf="qJKeys">Popular than others: {{morePopular}}</h3>
+
 <div *ngIf="qCKeys">
     <div *ngFor="let key of qCKeys; let i = index">
-      <h1>Manager Name: {{qC[key].manager_name}}</h1>
+      <h3>Manager Name: {{qC[key].manager_name}}</h3>
       <p>First Open Date: {{qC[key].first_open_date}}</p>
       <hr />
     </div>

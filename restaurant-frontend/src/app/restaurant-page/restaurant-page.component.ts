@@ -18,7 +18,6 @@ export class RestaurantPageComponent implements OnInit {
   public res : string;
   public clicked: boolean= false;
   public selectedRes: string;
-
   public isRestaurant: boolean = true;
 
   //QUERY A
@@ -28,6 +27,8 @@ export class RestaurantPageComponent implements OnInit {
   //QUERY D
   public qD: any;
   public qDKeys: string[];
+
+
 
   constructor(private router: Router, private restaurantService: RestaurantService, private queryService: QueriesService) { }
   
@@ -42,6 +43,7 @@ export class RestaurantPageComponent implements OnInit {
           console.log(err);
         }
     );
+
   }
 
   public goToRoute(route: string){
@@ -88,6 +90,7 @@ export class RestaurantPageComponent implements OnInit {
           console.log(err);
         }
     );
+
 
     form.resetForm();
  

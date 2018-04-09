@@ -1,3 +1,19 @@
-<p>
-  name-date-x works!
-</p>
+<h1 class = "text-center">Select Name and Dates By Rater</h1>
+<button class="text-center" (click)="goToRoute('home')">Return Home</button>
+<button class="text-center" (click)="goToRoute('restaurants')">Go Back</button>
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <option value="">Select Rater</option>
+  <select type="text" name="id" ngModel>
+    <option *ngFor="let key of raterKeys; let i = index" [value]="key">{{raters[key].name}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+<div *ngIf="qHKeys">
+    <div *ngFor="let key of qHKeys; let i = index">
+      <h3>Name: {{qH[key].name}}</h3>
+      <p>First Open Date: {{qH[key].first_open_date}}</p>
+      <hr />
+    </div>
+</div>

@@ -3,6 +3,7 @@
 <button class="text-center" (click)="goToRoute('addrestaurant')">Add Restaurant</button>
 <!-- <button class="text-center" (click)="changeView('restaurant')" *ngIf="!isRestaurant">Select by Restaurant</button> -->
 <button class="text-center" (click)="goToRoute('byCategory')">Select by Category</button>
+<button class="text-center" (click)="goToRoute('nameDateX')">Select Name and Dates By X</button>
 <hr />
 
 <!-- <h1>{{qAKeys[0]}}</h1> -->
@@ -28,8 +29,10 @@
   <select type="text" name="id" ngModel>
     <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
   </select>
-  <button type="submit">Submit</button>
+  <button type="submit">Search</button>
 </form>
+
+<h2>Popular than others:</h2>
 <!-- <option [value]=key>{{restaurants[key].name}}</option> -->
 
 <div *ngIf="qAKeys">

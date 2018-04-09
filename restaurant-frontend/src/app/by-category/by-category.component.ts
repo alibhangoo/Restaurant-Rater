@@ -14,11 +14,16 @@ export class ByCategoryComponent implements OnInit {
   
   public categories: any;
   public categoryKeys: string[];
-
   public qC: any;
   public qCKeys: string[];
+  
+  //QUERY J
+  public qJ: any;
+  public qJKeys: string[];
+  public morePopular: string= "";
 
   constructor(private router: Router, private queryService:QueriesService, private restaurantService:RestaurantService) { }
+
 
   ngOnInit() {
     this.restaurantService.getCategories().subscribe(
@@ -54,6 +59,26 @@ export class ByCategoryComponent implements OnInit {
           console.log(err);
         }
     );
+
+    this.queryService.queryJ(form.value.category).subscribe(
+      (loadedResult: any) =>{
+        this.qJ = loadedResult.result;
+        this.qJKeys = this.getKeys(this.qJ);
+        
+        if(this.qJ[0].case){
+          this.morePopular = "Yes!";
+        }else{
+          this.morePopular = "No.";
+        }
+        
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    
+    );
+
+  
 
     form.resetForm();
  
