@@ -21,13 +21,10 @@ import { AddRatingComponent } from './add-rating/add-rating.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
 import { AverageItemsComponent } from './average-items/average-items.component';
 import { NameDateXComponent } from './name-date-x/name-date-x.component';
-<<<<<<< HEAD
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-=======
 import { RatingItemsComponent } from './rating-items/rating-items.component';
 import { AddRatingItemComponent } from './add-rating-item/add-rating-item.component';
->>>>>>> 203addc2e33d973a02735f8621f0a42c02a12bea
 
 @NgModule({
   declarations: [
@@ -43,14 +40,9 @@ import { AddRatingItemComponent } from './add-rating-item/add-rating-item.compon
     NameDateXComponent,
     RatingsComponent,
     AddRatingComponent,
-<<<<<<< HEAD
-    AddRestaurantComponent
-    
-=======
     AddRestaurantComponent,
     RatingItemsComponent,
     AddRatingItemComponent
->>>>>>> 203addc2e33d973a02735f8621f0a42c02a12bea
   ],
   imports: [
     BrowserModule,
