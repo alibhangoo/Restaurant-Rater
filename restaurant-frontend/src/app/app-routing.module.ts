@@ -12,7 +12,8 @@ import { AddRatingComponent } from './add-rating/add-rating.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
 import { AverageItemsComponent } from './average-items/average-items.component';
 import { NameDateXComponent } from './name-date-x/name-date-x.component';
-
+import { RatingItemsComponent } from './rating-items/rating-items.component';
+import { AddRatingItemComponent } from './add-rating-item/add-rating-item.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -27,7 +28,9 @@ const routes: Routes = [
     {path: 'averageItems', component: AverageItemsComponent},
     {path: 'ratings', component: RatingsComponent},
     {path: 'addrating', component: AddRatingComponent},
-    {path: 'nameDateX', component: NameDateXComponent}
+    {path: 'nameDateX', component: NameDateXComponent},
+    {path: 'ratingitems', component: RatingItemsComponent},
+    {path: 'addratingitem', component: AddRatingItemComponent}
 ];
 
 @NgModule({
