@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { RestaurantService } from '../../services/restaurant.service';
 import { Restaurant } from "../../models/restaurant.model";
+import {NgForm} from '@angular/forms';
+import { QueriesService } from '../../services/queries.service';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -14,7 +16,15 @@ export class RestaurantPageComponent implements OnInit {
   public restaurants: any;
   public restaurantKeys: string[];
 
-  constructor(private router: Router, private restaurantService: RestaurantService) { }
+  public selectedRes: string;
+
+
+  //QUERY A
+  public qA: any;
+  public qAKeys: string[];
+
+
+  constructor(private router: Router, private restaurantService: RestaurantService, private queryService: QueriesService) { }
   
   
   ngOnInit() {
@@ -26,7 +36,6 @@ export class RestaurantPageComponent implements OnInit {
         (err:any) =>{
           console.log(err);
         }
-        //next, err, final or some sht
     );
   }
 
@@ -37,6 +46,22 @@ export class RestaurantPageComponent implements OnInit {
   public getKeys(obj: any): string[]{
     return Object.keys(obj); //random order
   }
+
+  public onSubmit(form: NgForm):void{
+    this.queryService.queryA(form.value.id).subscribe(
+      (loadedResult: any) =>{
+        this.qA = loadedResult.result;
+        this.qAKeys = this.getKeys(this.qA);
+    
+      },
+        (err:any) =>{
+          console.log(err);
+        }
+    );
+
+    form.resetForm();
+ 
+   }
   
 
 }

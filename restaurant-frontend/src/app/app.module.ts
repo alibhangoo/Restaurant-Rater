@@ -10,6 +10,7 @@ import { RestaurantPageComponent } from './restaurant-page/restaurant-page.compo
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { RestaurantService } from '../services/restaurant.service';
 import { RaterServices } from '../services/rater.service';
+import { QueriesService } from "../services/queries.service";
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -27,7 +28,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RaterServices,RestaurantService],
+  providers: [RaterServices,RestaurantService, QueriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

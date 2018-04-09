@@ -1,18 +1,33 @@
 <h1 class = "text-center">Restaurants</h1>
 <button class="text-center" (click)="goToRoute('home')">Home</button>
-<select>
-  <option value="">Select Restaurant</option>
-  <option value="r1">McDonalds</option>
-  <option value="r2">Popeyes</option>
-  <option value="r3">BBQ</option>
-</select>
 
-<div *ngIf="restaurantKeys">
-  <div *ngFor="let key of restaurantKeys; let i = index">
-    <h1>Name: {{restaurants[key].name}}</h1>
-    <p>Type: {{restaurants[key].type}}</p>
-    <p>Points: {{restaurants[key].url}}</p>
-    <!-- <button (click)="onDeleteChore(key, i)">Delete Chore</button> -->
-    <hr />
+<!-- <h1>{{qAKeys[0]}}</h1> -->
+<!-- <button (click)="onDeleteChore(key, i)">Delete Chore</button> -->
+
+<!-- (change) ="method($event.target.value)" -->
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <option value="">Select Restaurant</option>
+  <select type="text" name="id" ngModel>
+    <option *ngFor="let key of restaurantKeys; let i = index" [value]="key">{{restaurants[key].name}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+<!-- <option [value]=key>{{restaurants[key].name}}</option> -->
+
+<div *ngIf="qAKeys">
+    <div *ngFor="let key of qAKeys; let i = index">
+      <h1>Name: {{qA[key].name}}</h1>
+      <p>Type: {{qA[key].type}}</p>
+      <p>URL: {{qA[key].url}}</p>
+      <p>Location ID: {{qA[key].locationid}}</p>
+      <p>First Opened: {{qA[key].first_open_date}}</p>
+      <p>Manager Name: {{qA[key].manager_name}}</p>
+      <p>Location Number: {{qA[key].phone_number}}</p>
+      <p>Address: {{qA[key].street_address}}</p>
+      <p>OPEN FROM: {{qA[key].hour_open}}-{{qA[key].hour_close}}</p>
+      <hr />
+    </div>
   </div>
-</div>
+
+  
