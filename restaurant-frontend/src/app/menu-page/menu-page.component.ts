@@ -19,6 +19,8 @@ export class MenuPageComponent implements OnInit {
   public menuItems: any;
   public menuItemKeys: string[];
 
+
+
   constructor(private router: Router, private restaurantService:RestaurantService, private queryService:QueriesService, private menuItemService:MenuItemServices) { }
 
   ngOnInit() {
@@ -65,6 +67,7 @@ export class MenuPageComponent implements OnInit {
       }
     )
   }
+
 
   
 }

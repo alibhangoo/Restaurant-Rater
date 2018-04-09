@@ -11,6 +11,11 @@ export class RestaurantService{
         return this.http.get('http://localhost:8080/restaurants')
 
     }
+    public getCategories(): Observable<any>{
+        return this.http.get('http://localhost:8080/restaurantCategories')
+
+    }
+
     public createRestaurant(restaurant: Restaurant):Observable<any>{
         return this.http.post( 'http://localhost:8080/login' + 'chore.json', restaurant);
 

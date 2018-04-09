@@ -18,6 +18,7 @@ export class RestaurantPageComponent implements OnInit {
 
   public selectedRes: string;
 
+  public isRestaurant: boolean = true;
 
   //QUERY A
   public qA: any;
@@ -70,6 +71,15 @@ export class RestaurantPageComponent implements OnInit {
     form.resetForm();
  
    }
+
+   public changView(wantedView : string){
+      if(wantedView == "restaurant"){
+        this.isRestaurant = true;
+      }
+      else{
+        this.isRestaurant = false;
+      }
+  }
   
 
 }

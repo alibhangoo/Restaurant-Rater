@@ -1,6 +1,9 @@
 <h1 class = "text-center">Menus</h1>
 <button class="text-center" (click)="goToRoute('home')">Home</button>
 <button class="text-center" (click)="goToRoute('addMenuItem')">Add Menu Item</button>
+<button class="text-center" (click)="changeView('category')" *ngIf="isRestaurant">Select by Restaurant</button>
+<button class="text-center" (click)="changeView('category')" *ngIf="isRestaurant">Select by Category</button>
+
 
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <option value="">Select Restaurant</option>

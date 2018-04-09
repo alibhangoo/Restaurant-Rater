@@ -18,5 +18,10 @@ export class QueriesService {
         return this.http.get('http://localhost:8080/menuitems?restaurant='+ restaurantid);
     }
 
+    public queryC(category:string): Observable<any>{
+        return this.http.get('http://localhost:8080/manager?type='+category)
+
+    }
+
 
 }

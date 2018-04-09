@@ -7,6 +7,7 @@ import { RestaurantPageComponent } from './restaurant-page/restaurant-page.compo
 import { RegisterComponent } from './register/register.component';
 import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { ByCategoryComponent } from './by-category/by-category.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
     {path: 'restaurants', component: RestaurantPageComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'addMenuItem', component: AddMenuItemComponent},
-    {path: 'addrestaurant', component: AddRestaurantComponent}
+    {path: 'addrestaurant', component: AddRestaurantComponent},
+    {path: 'byCategory', component: ByCategoryComponent}
 ];
 
 @NgModule({
