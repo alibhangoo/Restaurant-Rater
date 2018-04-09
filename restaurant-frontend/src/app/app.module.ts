@@ -21,6 +21,8 @@ import { AddRatingComponent } from './add-rating/add-rating.component';
 import { ByCategoryComponent } from './by-category/by-category.component';
 import { AverageItemsComponent } from './average-items/average-items.component';
 import { NameDateXComponent } from './name-date-x/name-date-x.component';
+import { RatingItemsComponent } from './rating-items/rating-items.component';
+import { AddRatingItemComponent } from './add-rating-item/add-rating-item.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { NameDateXComponent } from './name-date-x/name-date-x.component';
     NameDateXComponent,
     RatingsComponent,
     AddRatingComponent,
-    AddRestaurantComponent
+    AddRestaurantComponent,
+    RatingItemsComponent,
+    AddRatingItemComponent
   ],
   imports: [
     BrowserModule,
