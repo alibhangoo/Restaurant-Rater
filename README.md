@@ -12,7 +12,7 @@
 **Reading the code:** Open using any IDE, or text editor
 
 **Description:** A web application that allows users to add, delete, rate, and filter restaurants and menu items. To rate restaurants
-and specific food, users can create accounts. SQL is used to create tables, formulate quarries, and insert data to PostgreSQL. The Java Spring framework is used to take the SQL quarries and develop HTTP requests. Angular is used develop services to populate the HTML templates, implement routing, and building a dynamic web page.
+and specific food, users can create accounts. SQL is used to create tables, formulate queries, and insert data to PostgreSQL. The Java Spring framework is used to take the SQL queries and develop HTTP requests. Angular is used develop services to populate the HTML templates, implement routing, and building a dynamic web page.
 
 **Background:** Group project for Database I, a second year Computer Science course at the University of Ottawa.
 
